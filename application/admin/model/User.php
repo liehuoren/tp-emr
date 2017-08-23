@@ -32,10 +32,12 @@ class User extends Model
     public function login($uid,$remember=false)
     {
         $user = $this->field(true)->find($uid);
-
+        $role = Db::table('emr_auth')->where('uid',$uid)->value('role_id');
         $auth = array(
             'uid' => $user['uid'],
             'nickname' => $user['nickname'],
+            'fullname' => $user['fullname'],
+            'role' => $role
         );
         session('user_auth', $auth);
         session('user_auth_sign', data_auth_sign($auth));

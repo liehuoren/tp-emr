@@ -4,7 +4,6 @@
 {/block}
 {block name="js"}
 <script src="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.js"></script>
-<script src="__JS__/role/role.js"></script>
 {/block}
 {block name="content"}
 <div id="content-container">
@@ -12,14 +11,14 @@
     <!--Page Title-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <div id="page-title">
-        <h1 class="page-header text-overflow">权限角色</h1>
+        <h1 class="page-header text-overflow">权限规则</h1>
     </div>
 
     <!--Breadcrumb-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <ol class="breadcrumb">
         <li><a href="{:url('admin/index/index')}">主页</a></li>
-        <li><a href="{:url('admin/role/index')}">权限角色</a></li>
+        <li><a href="{:url('admin/role/index')}">权限规则</a></li>
         <li class="active">新增</li>
     </ol>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -35,6 +34,7 @@
                 <div class="panel-control pull-left">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tabs-box-1" data-toggle="tab">基本信息</a></li>
+                        <li><a href="#tabs-box-2" data-toggle="tab">权限管理</a></li>
                     </ul>
                 </div>
                 <h3 class="panel-title invisible">a</h3>
@@ -42,7 +42,7 @@
             <div class="panel-body">
                 <div class="tab-content">
                     <div class="tab-pane fade active in" id="tabs-box-1">
-                    <form action="{:url('admin/role/save')}" method="post" class="form-horizontal" id="role-bv-errorcnt">
+                    <form action="{:url('admin/role/saveAuth')}" method="post" class="form-horizontal" id="role-bv-errorcnt">
                         <div class="row">
                             <div class="col-sm-9">
                                 <div class="form-group">
@@ -60,29 +60,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-9">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">角色状态</label>
-                                    <div class="col-lg-7">
-                                        <div class="radio">
-                                            <!-- Inline radio buttons -->
-                                            <input id="form-status-1" class="magic-radio" type="radio" name="status" value="-1">
-                                            <label for="form-status-1">已删除</label>
-                
-                                            <input id="form-status-0" class="magic-radio" type="radio" name="status" value="0">
-                                            <label for="form-status-0">已禁用</label>
-
-                                            <input id="form-status1" class="magic-radio" type="radio" name="status" value="1" checked>
-                                            <label for="form-status1">已启用</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="panel-footer">
                             <div class="row">
                                 <div class="col-sm-7 col-sm-offset-2">
-                                    <button class="btn btn-mint" type="submit">新增</button>
+                                    <!-- <button class="btn btn-mint" type="submit">新增</button> -->
                                     <a href="{:url('admin/role/index')}" class="btn btn-info"> 返回</a>
                                 </div>
                             </div>
@@ -90,7 +72,15 @@
                     </form>
                     </div>
 
-                    
+                    <div class="tab-pane fade" id="tabs-box-2">
+                    <form action="{:url('admin/role/update')}" method="post" class="form-horizontal">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                
+                            </div>
+                        </div>
+                    </form>
+                    </div>
                 </div>
             </div>
         </div>

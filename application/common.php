@@ -18,6 +18,14 @@ function is_login(){
         return session('user_auth_sign') == data_auth_sign($user) ? $user['uid'] : 0;
     }
 }
+function get_role(){
+    $user = session('user_auth');
+    if (empty($user)) {
+        return 0;
+    } else {
+        return session('user_auth_sign') == data_auth_sign($user) ? $user['role'] : 0;
+    }
+}
 
 function check_username(&$username, &$email, &$mobile, &$type = 0)
 {

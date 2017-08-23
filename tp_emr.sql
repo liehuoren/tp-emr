@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-08-22 16:21:19
+-- Generation Time: 2017-08-23 11:57:22
 -- 服务器版本： 5.7.14
 -- PHP Version: 7.0.10
 
@@ -395,7 +395,7 @@ CREATE TABLE `emr_auth` (
 --
 
 INSERT INTO `emr_auth` (`uid`, `role_id`) VALUES
-(1, 3),
+(1, 1),
 (100, 7);
 
 -- --------------------------------------------------------
@@ -4517,7 +4517,11 @@ INSERT INTO `sys_login_log` (`id`, `login_time`, `ip`, `user_id`) VALUES
 (20, 1503103096, '127.0.0.1', 1),
 (21, 1503325836, '127.0.0.1', 1),
 (22, 1503380508, '127.0.0.1', 1),
-(23, 1503408032, '127.0.0.1', 1);
+(23, 1503408032, '127.0.0.1', 1),
+(24, 1503468374, '127.0.0.1', 100),
+(25, 1503468490, '127.0.0.1', 100),
+(26, 1503470925, '127.0.0.1', 1),
+(27, 1503478112, '127.0.0.1', 1);
 
 -- --------------------------------------------------------
 
@@ -4538,13 +4542,13 @@ CREATE TABLE `sys_role` (
 --
 
 INSERT INTO `sys_role` (`id`, `name`, `description`, `status`, `rules`) VALUES
-(1, '超级管理员', '为所欲为', 1, ''),
-(2, '普通管理员', '普通管理权限', 1, ''),
-(3, '主管', '主管管理权限', 1, ''),
-(4, '班长', '班长管理权限', 1, ''),
-(5, '实习生', '实习生权限', 1, ''),
-(6, '小组长', '小组管理人员', 1, ''),
-(7, '实习生', '围观群众', 1, '');
+(1, '超级管理员', '为所欲为', 1, '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34'),
+(2, '普通管理员', '普通管理权限', 1, '1,35,36,37'),
+(3, '高级主管', '高级主管管理权限', 1, '1,35,36,37'),
+(4, '中心主管', '中心主管管理权限', 1, '1,35,36,37'),
+(5, '客服', '客服权限', 1, '1,35,36,37'),
+(6, '小组长', '小组管理人员', 1, '1,35,36,37'),
+(7, '实习生', '围观群众', 1, '1,35,36,37');
 
 -- --------------------------------------------------------
 
@@ -4561,6 +4565,49 @@ CREATE TABLE `sys_role_rule` (
   `status` tinyint(4) NOT NULL,
   `conditions` varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `sys_role_rule`
+--
+
+INSERT INTO `sys_role_rule` (`id`, `module`, `type`, `name`, `title`, `status`, `conditions`) VALUES
+(1, 'admin', 1, 'admin/index/index', '首页', 1, ''),
+(2, 'admin', 1, 'admin/member/index', '学员库', 1, ''),
+(3, 'admin', 1, 'admin/member/create', '添加页面', 1, ''),
+(4, 'admin', 2, 'admin/member/save', '新建', 1, ''),
+(5, 'admin', 1, 'admin/member/read', '查看', 1, ''),
+(6, 'admin', 1, 'admin/member/edit', '编辑', 1, ''),
+(7, 'admin', 2, 'admin/member/update', '更新', 1, ''),
+(8, 'admin', 2, 'admin/member/delete', '删除', 1, ''),
+(9, 'admin', 2, 'admin/member/setStatus', '审核', 1, ''),
+(10, 'admin', 1, 'admin/report/index', '评估报告', 1, ''),
+(11, 'admin', 2, 'admin/report/save', '添加', 1, ''),
+(12, 'admin', 1, 'admin/report/edit', '编辑', 1, ''),
+(13, 'admin', 2, 'admin/report/updateBase', '更新基本信息', 1, ''),
+(14, 'admin', 2, 'admin/report/updatePlan', '更新训练计划', 1, ''),
+(15, 'admin', 2, 'admin/report/updateBefore', '更新授课了解事项', 1, ''),
+(16, 'admin', 2, 'admin/report/updateReportA', '更新A', 1, ''),
+(17, 'admin', 2, 'admin/report/updateReportB', '更新B', 1, ''),
+(18, 'admin', 2, 'admin/report/updateReportC', '更新C', 1, ''),
+(19, 'admin', 2, 'admin/report/updateReportD', '更新D', 1, ''),
+(20, 'admin', 2, 'admin/report/updateReportE', '更新E', 1, ''),
+(21, 'admin', 1, 'admin/report/delete', '删除', 1, ''),
+(22, 'admin', 1, 'admin/report/setStatus', '审核', 1, ''),
+(23, 'admin', 1, 'admin/training/index', '训练记录', 1, ''),
+(24, 'admin', 2, 'admin/training/list', '查看', 1, ''),
+(25, 'admin', 2, 'admin/training/save', '新建', 1, ''),
+(26, 'admin', 2, 'admin/training/update', '更新', 1, ''),
+(27, 'admin', 2, 'admin/training/delete', '删除', 1, ''),
+(28, 'admin', 2, 'admin/training/setStatus', '审核', 1, ''),
+(29, 'admin', 1, 'admin/evaluation/index', '阶段评估报告', 1, ''),
+(30, 'admin', 2, 'admin/evaluation/save', '新建', 1, ''),
+(31, 'admin', 1, 'admin/evaluation/edit', '编辑', 1, ''),
+(32, 'admin', 2, 'admin/evaluation/update', '更新', 1, ''),
+(33, 'admin', 1, 'admin/evaluation/delete', '删除', 1, ''),
+(34, 'admin', 1, 'admin/evaluation/setStatus', '审核', 1, ''),
+(35, 'admin', 1, 'admin/user/profile', '个人信息', 1, ''),
+(36, 'admin', 2, 'admin/user/profileEdit', '更新', 1, ''),
+(37, 'admin', 2, 'admin/user/repassword', '修改密码', 1, '');
 
 -- --------------------------------------------------------
 
@@ -4588,8 +4635,8 @@ CREATE TABLE `sys_ucenter_user` (
 --
 
 INSERT INTO `sys_ucenter_user` (`id`, `username`, `email`, `mobile`, `password`, `reg_time`, `reg_ip`, `last_login_time`, `last_login_ip`, `login`, `status`, `type`) VALUES
-(1, 'admin', 'web@ostspeech.com', '15012991563', '4a486b121d023849abaece5c7bad201f', 1500600131, '127.0.0.1', 1503408031, 1270, 43, 1, 0),
-(100, NULL, '1025798480@qq.com', NULL, '62c358b5d68f8aa01930190aef553855', 1502785015, '127.0.0.1', 0, 0, 0, 0, 2);
+(1, 'admin', 'web@ostspeech.com', '15012991563', '4a486b121d023849abaece5c7bad201f', 1500600131, '127.0.0.1', 1503478112, 1270, 45, 1, 0),
+(100, NULL, '1025798480@qq.com', NULL, '9f0a2edd834cdb95e4cf8ce845bc9a54', 1502785015, '127.0.0.1', 1503468490, 1270, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -4619,7 +4666,27 @@ CREATE TABLE `sys_user` (
 
 INSERT INTO `sys_user` (`uid`, `nickname`, `fullname`, `sex`, `birthday`, `avatar`, `pos_province`, `pos_city`, `pos_district`, `pos_community`, `address`, `centers`, `status`) VALUES
 (1, '超级管理员', '周红烈', 1, 1496592000, '', 420000, 420900, 420984, 0, '', 2, 1),
-(100, 'webweb', '周红烈', 1, -2147483648, '', 0, 0, 0, 0, '', 0, 2);
+(100, 'webweb', '周红烈', 1, 1433260800, '', 330000, 330100, 330102, 0, '', 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `sys_user_group`
+--
+
+CREATE TABLE `sys_user_group` (
+  `id` int(10) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `group_id` varchar(200) NOT NULL,
+  `status` tinyint(4) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `sys_user_group`
+--
+
+INSERT INTO `sys_user_group` (`id`, `uid`, `group_id`, `status`) VALUES
+(1, 1, '100', 1);
 
 -- --------------------------------------------------------
 
@@ -4843,6 +4910,12 @@ ALTER TABLE `sys_user`
   ADD PRIMARY KEY (`uid`);
 
 --
+-- Indexes for table `sys_user_group`
+--
+ALTER TABLE `sys_user_group`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sys_user_token`
 --
 ALTER TABLE `sys_user_token`
@@ -4977,7 +5050,7 @@ ALTER TABLE `sys_config`
 -- 使用表AUTO_INCREMENT `sys_login_log`
 --
 ALTER TABLE `sys_login_log`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- 使用表AUTO_INCREMENT `sys_role`
 --
@@ -4987,7 +5060,7 @@ ALTER TABLE `sys_role`
 -- 使用表AUTO_INCREMENT `sys_role_rule`
 --
 ALTER TABLE `sys_role_rule`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- 使用表AUTO_INCREMENT `sys_ucenter_user`
 --
@@ -4998,6 +5071,11 @@ ALTER TABLE `sys_ucenter_user`
 --
 ALTER TABLE `sys_user`
   MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+--
+-- 使用表AUTO_INCREMENT `sys_user_group`
+--
+ALTER TABLE `sys_user_group`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- 使用表AUTO_INCREMENT `sys_user_token`
 --

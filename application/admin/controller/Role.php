@@ -1,6 +1,7 @@
 <?php
 namespace app\admin\controller;
 use think\Request;
+use think\Db;
 use app\admin\controller\Base;
 use app\admin\model\Role as Roles;
 class Role extends Base
@@ -24,6 +25,10 @@ class Role extends Base
     public function create()
     {
         return view();
+    }
+
+    public function createAuth(){
+        return view('role/create-auth');
     }
 
     /**
@@ -68,7 +73,8 @@ class Role extends Base
         if($info==null){
             $this->error('不存在该角色');
         }
-        return view('',['info'=>$info->toArray()]);
+        $rules = Db::table('sys_role_rule')->select();
+        return view('',['info'=>$info->toArray(),'rules'=>$rules->toArray()]);
     }
 
     /**
@@ -82,7 +88,11 @@ class Role extends Base
     {
         if($request->isPost()){
             $role = Roles::get($id);
-            $result = $role->save($request->param()); 
+            $data = $request->param();
+            if(!empty($data['rules'])){
+                $data['rules'] = implode(',', $data['rules']);
+            }
+            $result = $role->save($data); 
             if($result){
                 $this->success('更新成功');
             }else{

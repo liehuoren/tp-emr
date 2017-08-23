@@ -66,7 +66,7 @@ class Report extends Base
      */
     public function read($id)
     {
-        $attentionlist = Db::table('emr_assess_template_attention')->order('groups asc,sort asc')->cache(true)->select();
+        /*$attentionlist = Db::table('emr_assess_template_attention')->order('groups asc,sort asc')->cache(true)->select();
         $sociallist = Db::table('emr_assess_template_social')->order('sort asc')->cache(true)->select(); 
         $stu = Member::get($id,'report');
         if($stu->report){
@@ -75,7 +75,7 @@ class Report extends Base
             $info = $stu->append(['update_name','status_class'])->toArray();
         }
         
-        return view('',['info'=>$info,'attentionlist'=>$attentionlist,'sociallist'=>$sociallist]);
+        return view('',['info'=>$info,'attentionlist'=>$attentionlist,'sociallist'=>$sociallist]);*/
     }
 
     /**
@@ -161,9 +161,9 @@ class Report extends Base
             $report = Reports::get($id);
             $res = $report->save($data);
             if($res){
-                $this->success('更新成功');
+                return true;
             }else{
-                $this->error('更新失败');
+                return false;
             }
         }
         

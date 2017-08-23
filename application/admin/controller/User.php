@@ -3,7 +3,9 @@ namespace app\admin\controller;
 use app\admin\controller\Base;
 use app\admin\model\UcenterUser;
 use app\admin\model\Role;
+use app\admin\model\User as Users;
 use think\Request;
+use think\Db;
 
 class User extends Base
 {
@@ -34,12 +36,12 @@ class User extends Base
         if($request->isPost()){
 
             $data = $request->param();
-
             $user = UcenterUser::get($id);
             
             $user->roles()->detach();
             $res = $user->roles()->attach($data['role']);
             $res1 = $user->profile->allowField('true')->save($data);
+            $res2 = $user->save(['status'=>$data['status']]);
             if($res||$res1){
                 $this->success('更新成功');
             }else{
@@ -105,6 +107,54 @@ class User extends Base
             }
 
         }
+    }
+
+    public function indexGroup()
+    {
+        $list = Db::table('sys_user_group')->where('status','>',0)->select();
+        $list = $list->toArray();
+        foreach($list as &$v){
+            $v['name'] = Users::where('uid',$v['uid'])->value('fullname');
+            $group_id = explode(',', $v['group_id']);
+            $group_name = array();
+            foreach ($group_id as $vv) {
+                $group_name[] = Users::where('uid',$vv)->value('fullname');
+            }
+            $v['group_name'] = implode(',', $group_name);
+        }
+        unset($v);
+
+        return view('index-group',['list'=>$list]);
+    }
+
+    public function createGroup()
+    {
+        $list = UcenterUser::with(['profile','roles'])->where('status','>=',0)->field('id,status')->cache(true)->select();
+        $lists = $list->visible(['id','profile'=>['fullname'],'roles'=>['id','name']])->toArray();
+        return view('create-group',['list'=>$lists]);
+    }
+
+    public function saveGroup(Request $request)
+    {
+        if($request->isPost()){
+            $data = $request->param();
+            $data['group_id'] = implode(',',$data['group_id']);
+            $res = Db::table('sys_user_group')->insert($data);
+            if($res){
+                $this->success('新建小组成功');
+            }else{
+                $this->error('新建小组失败');
+            }
+        }
+    }
+
+    public function editGroup($id)
+    {
+        $user_group = Db::table('sys_user_group')->where('id',$id)->find();
+
+        $list = UcenterUser::with(['profile','roles'])->where('status','>=',0)->field('id,status')->cache(true)->select();
+        $lists = $list->visible(['id','profile'=>['fullname'],'roles'=>['id','name']])->toArray();
+        return view('edit-group',['list'=>$lists,'user'=>$user_group]);
     }
 
 }

@@ -24,11 +24,5 @@ class Role extends Model
         return $status[$data['status']];
     }
 
-    protected function getRulesAttr($value)
-    {
-        if($value!=''){
-            return explode(',', $value);
-        }
-        return null;
-    }
+    
 }

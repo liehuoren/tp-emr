@@ -26,7 +26,7 @@
                             <a href="{:url('admin/user/profile')}" class="list-group-item">
                                 <i class="demo-pli-male icon-lg icon-fw"></i> 个人信息
                             </a>
-                            <a href="{:url('Index/admin/logout')}" class="list-group-item">
+                            <a href="{:url('admin/admin/logout')}" class="list-group-item">
                                 <i class="demo-pli-unlock icon-lg icon-fw"></i> 退出登录
                             </a>
                         </div>
@@ -39,32 +39,7 @@
             
                         <!--Menu list item-->
             
-                        <!--Menu list item-->
-                        <!-- <li>
-                            <a href="#">
-                                <i class="demo-psi-split-vertical-2"></i>
-                                <span class="menu-title">
-                                    <strong>评估表</strong>
-                                </span>
-                                <i class="arrow"></i>
-                            </a>
-                            <ul class="collapse">
-                                <li><a href="{:url('Index/assess/ompadd')}">口肌发音</a></li>
-                                
-                                <li><a href="{:url('Index/assess/expressadd')}">语言理解表达能力</a></li>
-                                <li><a href="{:url('Index/assess/sensoryadd')}">感统</a></li>
-                                <li><a href="{:url('Index/assess/attentionadd')}">专注力</a></li>
-                                <li><a href="{:url('Index/assess/socialadd')}">社交行为</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="{:url('Index/assess/infoBeforeAdd')}">
-                                <i class="demo-psi-pen-5"></i>
-                                <span class="menu-title">
-                                    <strong>授课前了解事项</strong>
-                                </span>
-                            </a>
-                        </li> -->
+                        
                         <li>
                             <a href="{:url('admin/assess/create')}">
                                 <i class="demo-psi-pen-5"></i>
@@ -90,7 +65,7 @@
                                 </span>
                             </a>
                         </li>
-
+                        {in name="userself.roles.0.id" value="1"}
                         <li>
                             <a href="#">
                                 <i class="demo-psi-gear-2"></i>
@@ -101,10 +76,12 @@
                             </a>
                             <ul class="collapse">
                                 <li><a href="{:url('admin/role/index')}">权限角色</a></li>
+                                <li><a href="{:url('admin/user/indexGroup')}">管理小组</a></li>
                                 <li><a href="{:url('admin/user/index')}">用户管理</a></li>
                                 <li><a href="{:url('admin/config/log')}">网站日志</a></li>
                             </ul>
                         </li>
+                        {/in}
                                           
                     <!--================================-->
                     <!--End widget-->

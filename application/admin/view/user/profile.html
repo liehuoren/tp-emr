@@ -16,6 +16,7 @@
 <link href="__PLUGINS__/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
 <!--Bootstrap Datepicker [ OPTIONAL ]-->
 <link href="__PLUGINS__/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+<link href="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
 <!--Magic Checkbox [ OPTIONAL ]-->
 <link href="__PLUGINS__/magic-check/css/magic-check.min.css" rel="stylesheet">
 {/block}
@@ -36,6 +37,7 @@
 <script src="__PLUGINS__/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
 <!--Bootstrap Datepicker [ OPTIONAL ]-->
 <script src="__PLUGINS__/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.js"></script>
 <!--Summernote [ OPTIONAL ]-->
 <script src="__PLUGINS__/mask/jquery.mask.min.js"></script>
 <script src="__JS__/admin/profile.js"></script>
@@ -72,7 +74,7 @@
                             手机号： {$userself.mobile}
                         </li>
                         <li class="list-group-item list-item-sm text-primary text-semibold"> 
-                            年龄： {$userself.profile.birthday}
+                            年龄： {$userself.profile.birthday|birthday}
                         </li>
                         <li class="list-group-item list-item-sm text-primary text-semibold"> 
                             所在中心： {$userself.profile.centers.name}
@@ -225,7 +227,7 @@
                             </form>
                             </div>
                             <div class="tab-pane fade" id="demo-tabs-box-2">
-                                <form class="form-horizontal" action="{:url('admin/user/repassword')}" method="post">
+                                <form class="form-horizontal" action="{:url('admin/user/repassword')}" method="post" id="profile-password">
                                 <div class="row">
                                     <div class="col-sm-9">
                                         <div class="form-group">

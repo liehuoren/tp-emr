@@ -25,17 +25,22 @@ class Training extends Base
 
     }
 
-    public function list($type=1,$id)
+    public function list($types=1,$id)
     {
         $id = (int)$id;
-        $type = (int)$type;
+        $types = (int)$types;
         $stu = Member::get($id,true);
         if(!$stu){
             return null;
         }
-        $request = request()->param();
 
-        $list = $stu->training()->where('type',$type)->where('status','>','-1')->order('training_time desc')->limit($request['offset'],$request['limit'])->select();
+        $request = request()->param();
+        $page = ($request['offset']/$request['limit'])+1;
+        $map['stu_id'] = $id;
+        $map['type'] = $types;
+        $list = Trainings::where($map)->where('status','>','-1')->order('training_time desc')->paginate(['page'=>$page,'list_rows' => 20]);
+        
+        
         return $list;
     }
 
@@ -77,14 +82,7 @@ class Training extends Base
     public function read($id)
     {
 
-        $stu = Member::get($id,'training');
-        if($stu->training){
-            $info = $stu->append(['update_name','status_class'])->toArray(); 
-        }else{
-            $info = $stu->append(['update_name','status_class'])->toArray();
-        }
-        
-        return view('',['info'=>$info]);
+        //
     }
 
     /**

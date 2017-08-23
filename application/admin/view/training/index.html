@@ -100,7 +100,7 @@
                                 <button id="status-1-row" class="btn btn-success" disabled data-url="{:url('admin/training/setStatus')}"> 通过审核</button>
                                 <button id="status-0-row" class="btn btn-warning" disabled data-url="{:url('admin/training/setStatus')}">未通过审核</button>
                                 <table id="train-a" class="demo-add-niftycheck"
-                                       data-url="{:url('admin/training/list',['type'=>1,'id'=>$info['id']])}"
+                                       data-url="{:url('admin/training/list',['types'=>1,'id'=>$info['id']])}"
                                        data-toolbar="#delete-row,#add-row,#status-1-row,#status-0-row"
                                        data-search="true"
                                        data-show-refresh="true"
@@ -109,7 +109,7 @@
                                        data-sort-name="id"
                                        data-page-list="[5, 10, 20]"
                                        data-page-size="20"
-                                       data-pagination="true" data-show-pagination-switch="true">
+                                       data-pagination="true" data-side-pagination="server" data-show-pagination-switch="true">
                                     
                                 </table>
                                 {include file="training/training-a" /}
@@ -120,7 +120,7 @@
                                 <button id="status-1-row-b" class="btn btn-success" disabled data-url="{:url('admin/training/setStatus')}"> 通过审核</button>
                                 <button id="status-0-row-b" class="btn btn-warning" disabled data-url="{:url('admin/training/setStatus')}">未通过审核</button>
                                 <table id="train-b" class="demo-add-niftycheck"
-                                       data-url="{:url('admin/training/list',['type'=>2,'id'=>$info['id']])}"
+                                       data-url="{:url('admin/training/list',['types'=>2,'id'=>$info['id']])}"
                                        data-toolbar="#delete-row-b,#add-row-b,#status-1-row-b,#status-0-row-b"
                                        data-search="true"
                                        data-show-refresh="true"
@@ -129,7 +129,7 @@
                                        data-sort-name="id"
                                        data-page-list="[5, 10, 20]"
                                        data-page-size="20"
-                                       data-pagination="true" data-show-pagination-switch="true">
+                                       data-pagination="true" data-side-pagination="server" data-show-pagination-switch="true">
                                     
                                 </table>
                                 {include file="training/training-b" /}
@@ -140,7 +140,7 @@
                                 <button id="status-1-row-c" class="btn btn-success" disabled data-url="{:url('admin/training/setStatus')}"> 通过审核</button>
                                 <button id="status-0-row-c" class="btn btn-warning" disabled data-url="{:url('admin/training/setStatus')}">未通过审核</button>
                                 <table id="train-c" class="demo-add-niftycheck"
-                                       data-url="{:url('admin/training/list',['type'=>3,'id'=>$info['id']])}"
+                                       data-url="{:url('admin/training/list',['types'=>3,'id'=>$info['id']])}"
                                        data-toolbar="#delete-row-c,#add-row-c,#status-1-row-c,#status-0-row-c"
                                        data-search="true"
                                        data-show-refresh="true"
@@ -149,7 +149,7 @@
                                        data-sort-name="id"
                                        data-page-list="[5, 10, 20]"
                                        data-page-size="20"
-                                       data-pagination="true" data-show-pagination-switch="true">
+                                       data-pagination="true" data-side-pagination="server" data-show-pagination-switch="true">
                                     
                                 </table>
                                 {include file="training/training-c" /}

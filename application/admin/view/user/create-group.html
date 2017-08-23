@@ -1,10 +1,11 @@
 {extend name="Public:base" /}
 {block name="css"}
+<link href="__PLUGINS__/chosen/chosen.min.css" rel="stylesheet">
 <link href="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
 {/block}
 {block name="js"}
+<script src="__PLUGINS__/chosen/chosen.jquery.min.js"></script>
 <script src="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.js"></script>
-<script src="__JS__/role/role.js"></script>
 {/block}
 {block name="content"}
 <div id="content-container">
@@ -12,14 +13,14 @@
     <!--Page Title-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <div id="page-title">
-        <h1 class="page-header text-overflow">权限角色</h1>
+        <h1 class="page-header text-overflow">管理员分组</h1>
     </div>
 
     <!--Breadcrumb-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <ol class="breadcrumb">
         <li><a href="{:url('admin/index/index')}">主页</a></li>
-        <li><a href="{:url('admin/role/index')}">权限角色</a></li>
+        <li><a href="{:url('admin/user/indexGroup')}">管理小组</a></li>
         <li class="active">新增</li>
     </ol>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -42,21 +43,43 @@
             <div class="panel-body">
                 <div class="tab-content">
                     <div class="tab-pane fade active in" id="tabs-box-1">
-                    <form action="{:url('admin/role/save')}" method="post" class="form-horizontal" id="role-bv-errorcnt">
+                    <form action="{:url('admin/user/saveGroup')}" method="post" class="form-horizontal" id="role-bv-errorcnt">
                         <div class="row">
                             <div class="col-sm-9">
                                 <div class="form-group">
-                                    <label class="col-lg-3 control-label">角色名</label>
+                                    <label class="col-lg-3 control-label">小组长</label>
                                     <div class="col-lg-7">
-                                        <input type="text" class="form-control" name="name" placeholder="" value="">
+                                        <select data-placeholder="选择小组长" id="chosen-select" tabindex="1" name="uid" class="form-control">   <option value=""></option>
+                                            {volist name="list" id="vo"}
+                                                {in name="vo.roles.0.id" value="1,2,3,4,6"}
+                                                <option value="{$vo.id}">{$vo.id}-{$vo.profile.fullname}-{$vo.roles.0.name}</option>
+                                                {/in}
+                                            }
+                                            {/volist}
+                                        </select>
+                                        <script type="text/javascript">
+
+                                            $('#chosen-select').chosen({width:'100%',allow_single_deselect:true,no_results_text: "没有找到结果！"});
+
+                                        </script>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-9">
                                 <div class="form-group">
-                                    <label class="col-lg-3 control-label">角色描述</label>
+                                    <label class="col-lg-3 control-label">小组成员</label>
                                     <div class="col-lg-7">
-                                        <input type="text" class="form-control" name="description" placeholder="" value="">
+                                        <select data-placeholder="选择小组长" id="chosen-select-group" tabindex="1" name="group_id" multiple class="form-control">   <option value=""></option>
+                                            {volist name="list" id="vo"}
+                                                {in name="vo.roles.0.id" value="7"}
+                                                <option value="{$vo.id}">{$vo.id}-{$vo.profile.fullname}-{$vo.roles.0.name}</option>
+                                                {/in}
+                                            }
+                                            {/volist}
+                                        </select>
+                                        <script type="text/javascript">
+                                            $('#chosen-select-group').chosen({width:'100%',allow_single_deselect:true,no_results_text: "没有找到结果！"});
+                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +106,7 @@
                             <div class="row">
                                 <div class="col-sm-7 col-sm-offset-2">
                                     <button class="btn btn-mint" type="submit">新增</button>
-                                    <a href="{:url('admin/role/index')}" class="btn btn-info"> 返回</a>
+                                    <a href="{:url('admin/user/indexGroup')}" class="btn btn-info"> 返回</a>
                                 </div>
                             </div>
                         </div>
