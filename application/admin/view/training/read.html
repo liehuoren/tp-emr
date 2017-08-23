@@ -1,0 +1,210 @@
+{extend name="Public/base" /}
+{block name="css"}
+<!--Chosen [ OPTIONAL ]-->
+<link href="__PLUGINS__/chosen/chosen.min.css" rel="stylesheet">
+<link href="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
+{/block}
+{block name="js"}
+<!--Chosen [ OPTIONAL ]-->
+<script src="__PLUGINS__/chosen/chosen.jquery.min.js"></script>
+<script src="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.js"></script>
+<script src="__PLUGINS__/mask/jquery.mask.min.js"></script>
+<script src="__JS__/member/member.js"></script>
+{/block}
+{block name="content"}
+<div id="content-container">
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">评估报告</h1>
+    </div>
+
+    <!--Breadcrumb-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+        <li><a href="{:url('admin/index/index')}">主页</a></li>
+        <li><a href="{:url('admin/member/index')}">学员库</a></li>
+        <li class="active">学员报告——{$info.name}</li>
+    </ol>
+    <div id="page-content">
+        <div class="fixed-fluid">
+            <div class="fixed-sm-200 fixed-lg-250 pull-sm-left">
+                <div class="panel">
+                    <div class="text-center pad-all bord-btm">
+                        <div class="pad-ver">
+                            <img src="{$info.avatar}" class="img-lg img-border img-circle" alt="Profile Picture">
+                        </div>
+                        <h4 class="text-lg text-overflow mar-no">{$info.name}</h4>
+                        <p class="text-sm text-muted">{$info.uuid}</p>
+                        
+                    </div>
+                    <p class="text-semibold text-main pad-all mar-no">基本信息</p>
+                    <div class="list-group bg-trans pad-btm bord-btm">
+                        <a href="#" class="list-group-item ">
+                            <span class="text-main">性别：</span>{$info.sex}
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="text-main">出生日期：</span>{$info.birthday}
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="text-main">年龄：</span>{$info.birthday|birthday}
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="text-main">建档日期：</span>{$info.reg_time}
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="text-main">最近修改日期：</span>{$info.update_time}
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="text-main">最近修改人：</span>{$info.update_name}
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="text-main">状态：</span>{$info.status}
+                            <span class="badge badge-{$info.status_class} badge-icon badge-fw pull-right"></span>
+                        </a>
+                        
+                    </div>
+                    <p class="text-semibold text-main pad-all mar-no">病历信息</p>
+                    <div class="list-group bg-trans pad-btm bord-btm">
+                        <a href="{:url('admin/report/read',['id'=>$info['id']])}" class="list-group-item ">
+                            <i class="demo-pli-file icon-lg icon-fw"></i>
+                            评估报告
+                        </a>
+                        <a href="{:url('admin/training/read',['id'=>$info['id']])}" class="list-group-item">
+                            <i class="demo-pli-file icon-lg icon-fw"></i>
+                            训练记录
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="demo-pli-file icon-lg icon-fw"></i>
+                            阶段评估
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="fluid">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-control pull-left">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#demo-tabs-box-1" data-toggle="tab">训练记录表-A</a></li>
+                                <li><a href="#demo-tabs-box-2" data-toggle="tab">训练基表表-B</a></li>
+                                <li><a href="#demo-tabs-box-3" data-toggle="tab">训练记录表-C</a></li>
+                                
+                            </ul>
+                        </div>
+                        <h3 class="panel-title invisible">a</h3>
+                    </div>
+                    
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="demo-tabs-box-1">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>日期（Date）</th>
+                                            <th>口肌（OM）</th>
+                                            <th>发音（Articulation）</th>
+                                            <th>课堂表现（Class Performance）</th>
+                                            <th>治疗师（Therapi）</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>2017-8-12</th>
+                                            <th>一些问题</th>
+                                            <th>表现很好</th>
+                                            <th>表现很好</th>
+                                            <th>刘老师</th>
+                                        </tr>
+                                        <tr>
+                                            <th>2017-8-10</th>
+                                            <th>一些问题aaaa</th>
+                                            <th>表现很好</th>
+                                            <th>表现很好</th>
+                                            <th>刘老师</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                    <button data-target="#report-a-modal" data-toggle="modal" class="btn btn-block btn-primary">新增</button>
+                                    </div>
+                                </div>
+                                {include file="training/training-a" /}
+                            </div>
+                            <div class="tab-pane fade" id="demo-tabs-box-2">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>日期（Date）</th>
+                                            <th>认知理解（CP）</th>
+                                            <th>语言表达（EX）</th>
+                                            <th>课堂表现（Class Performance）</th>
+                                            <th>治疗师（Therapi）</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>2017-05-12</th>
+                                            <th>表现不错</th>
+                                            <th>表现可以</th>
+                                            <th>表现很好</th>
+                                            <th>宋老师</th>
+                                        </tr>
+                                        <tr>
+                                            <th>2017-05-11</th>
+                                            <th>表现不错</th>
+                                            <th>表现可以</th>
+                                            <th>表现很好</th>
+                                            <th>宋老师</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                    <button data-target="#report-b-modal" data-toggle="modal" class="btn btn-block btn-primary">新增</button>
+                                    </div>
+                                </div>
+                                {include file="training/training-b" /}
+                            </div>
+                            <div class="tab-pane fade" id="demo-tabs-box-3">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>日期（Date）</th>
+                                            <th>触觉、前庭觉、本体觉（Tactile、vestibular and proprioception）</th>
+                                            <th>专注力（Attention）</th>
+                                            <th>互动社交（Interaction and Social Behavior）</th>
+                                            <th>大小肌肉（Fine and Gross Motor Skill）</th>
+                                            <th>课堂表现（Class Performance）</th>
+                                            <th>治疗师（Therapist）</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                    <button data-target="#report-c-modal" data-toggle="modal" class="btn btn-block btn-primary">新增</button>
+                                    </div>
+                                </div>
+                                {include file="training/training-c" /}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+{/block}

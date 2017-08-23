@@ -1,0 +1,98 @@
+<form class="form-horizontal" action="{:url('admin/report/updateReportB',['id'=>$report['id']])}" method="post" id="report-b-form">
+    <p class="text-semibold text-main pad-all mar-no">基本反应</p>
+    <table class="table table-bordered">
+        <tr>
+            <td class="text-center">听觉反应（Auditory）</td>
+            <td>
+                {volist name="auditory" id="vo"}
+                    <div class="form-group" style="margin-left: 15px;"> 
+                        <div class="col-sm-1">
+                            <select class="form-control" name="auditory[]"><option></option><option value="1" {eq name="report['report_b']['auditory'][$key]" value="1"}selected{/eq}>√</option><option value="0" {eq name="report['report_b']['auditory'][$key]" value="0"}selected{/eq}>×</option></select>
+                        </div>
+                        <label class="col-sm-10 control-label text-left">{$vo.cn_name}&nbsp;{$vo.en_name}</label> 
+                    </div>
+                {/volist}
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center">视觉反应（Visual）</td>
+            <td>
+                 
+                {volist name="visual" id="vo"}
+                    <div class="form-group" style="margin-left: 15px;"> 
+                        <div class="col-sm-1">
+                            <select class="form-control" name="visual[]"><option></option><option value="1" {eq name="report['report_b']['visual'][$key]" value="1"}selected{/eq}>√</option><option value="0" {eq name="report['report_b']['visual'][$key]" value="0"}selected{/eq}>×</option></select>
+                        </div>
+                        {eq name="vo.id" value="4"}
+                            <label class="col-sm-2 control-label">{$vo.cn_name}&nbsp;{$vo.en_name}</label>
+                            <label class="col-sm-2 control-label">左右&nbsp;Left/right</label>
+                            <div class="col-sm-2">
+                                <input class="form-control" name="visual_left" value="{$report.report_b.visual_left}">
+                            </div>
+                            <label class="col-sm-2 control-label">上下&nbsp;Up/down</label>
+                            <div class="col-sm-2">
+                                <input class="form-control" name="visual_up" value="{$report.report_b.visual_up}">
+                            </div>
+                            
+                        {else /}
+                            <label class="col-sm-10 control-label text-left">{$vo.cn_name}&nbsp;{$vo.en_name}</label> 
+                        {/eq}
+                    </div>
+                {/volist}
+                
+            </td>
+        </tr>
+    </table>
+
+    <table class="table table-bordered">
+        
+        {volist name="expressions" id="vo" key="ko"}
+            {volist name="vo" id="v" key="k"}
+                {volist name="v" id="vv" key="kk"}
+                    {present name="vv.0.cn_name"}
+                        <tr>
+                            {if condition="($k == 1) AND ($kk == 1)"}
+                                <td colspan="1" {eq name='ko' value='1'}rowspan="16"{else /}rowspan="9"{/eq} width="8%">{$vo.en_name}&nbsp;{$vo.cn_name}</td>
+                            {/if}
+                            {eq name="kk" value="1"}
+                                <td colspan="2" {in name='k' value='5,6'}rowspan="2{else /}rowspan="3"{/in} width="10%">{$v.cn_name}&nbsp;{$v.en_name}</td>
+                            {/eq}
+                            <td colspan="1">{$key|strtoupper}</td>
+                            <td colspan="8">
+                                <div class="form-group">
+                                    {volist name="vv" id="vs"}
+                                        <label class="col-sm-1 control-label">{$vs.cn_name}</label>
+                                        <div class="col-sm-1">
+                                            <select class="form-control" name="{$vs.field_name}"><option></option><option value="1" {eq name="report['report_b'][$vs['field_name']]" value="1"}selected{/eq}>√</option><option value="0" {eq name="report['report_b'][$vs['field_name']]" value="0"}selected{/eq}>×</option></select>
+                                        </div>
+                                    {/volist}
+                                </div>
+                            </td>
+                        </tr>
+                    {/present}
+                {/volist}
+            {/volist}
+            
+        {/volist}
+    </table>
+
+    <p class="text-semibold text-main pad-all mar-no">语言理解表达能力评估小结</p>
+    <table class="table table-bordered">
+        <tbody>
+
+            <tr>
+                <td colspan="12">
+                    <textarea name="content" class="form-control" rows="6">{$report.report_b.content}</textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+                    
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-7 col-sm-offset-1">
+                <button class="btn btn-mint" type="submit">保存</button>
+            </div>
+        </div>
+    </div>
+</form>

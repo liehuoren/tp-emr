@@ -1,0 +1,665 @@
+<form class="form-horizontal" action="{:url('admin/report/updateReportA',['id'=>$report['id']])}" method="post" id="report-a-form">
+    <p class="text-semibold text-main pad-all mar-no">口肌及喂吃-OM</p>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td colspan="2" class="col-lg-2 text-center" >01 口腔敏感度（Oral Sensitivity）</td>
+                <td colspan="10" class="col-lg-10"><div class="checkbox">
+                        <!-- Inline Checkboxes -->
+
+                        <input id="oral-checkbox-1" class="magic-checkbox" type="checkbox" name="sensitivity[]" {in name="1" value="$report.report_a.om.oral_sensitivity"}checked{/in} value="1" >
+                        <label for="oral-checkbox-1">高敏感</label>
+                        <input id="oral-checkbox-2" class="magic-checkbox" type="checkbox" name="sensitivity[]" {in name="2" value="$report.report_a.om.oral_sensitivity"}checked{/in} value="2">
+                        <label for="oral-checkbox-2">低敏感</label>
+                        <input id="oral-checkbox-3" class="magic-checkbox" type="checkbox" name="sensitivity[]" {in name="3" value="$report.report_a.om.oral_sensitivity"}checked{/in} value="3">
+                        <label for="oral-checkbox-3">混合</label>
+                        <input id="oral-checkbox-4" class="magic-checkbox" type="checkbox" name="sensitivity[]" {in name="4" value="$report.report_a.om.oral_sensitivity"}checked{/in} value="4">
+                        <label for="oral-checkbox-4">波动</label>
+                        <input id="oral-checkbox-5" class="magic-checkbox" type="checkbox" name="sensitivity[]" {in name="5" value="$report.report_a.om.oral_sensitivity"}checked{/in} value="5">
+                        <label for="oral-checkbox-5">防御</label>
+                        <input id="oral-checkbox-6" class="magic-checkbox" type="checkbox" name="sensitivity[]" {in name="6" value="$report.report_a.om.oral_sensitivity"}checked{/in} value="6">
+                        <label for="oral-checkbox-6">正常</label>
+                    </div></td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="6" class="text-center">02 喂吃（Feeding）</td>
+                <td colspan="2">勺子喂吃（Purees）</td>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">侧面</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="purees_side"><option></option><option value="1" {eq name="report.report_a.om.feeding.purees.side" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.purees.side" value="0"}selected{/eq}>不可以</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">正面</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="purees_front"><option></option><option value="1" {eq name="report.report_a.om.feeding.purees.front" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.purees.front" value="0"}selected{/eq}>不可以</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">啜饮</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="purees_slurping"><option></option><option value="1" {eq name="report.report_a.om.feeding.purees.slurping" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.purees.slurping" value="0"}selected{/eq}>不可以</option></select>
+                        </div>
+                        <div class="checkbox col-sm-3">
+                            <input id="purees-checkbox-1" class="magic-checkbox" type="checkbox" name="purees_unable" value="1" {eq name="report.report_a.om.feeding.purees.unable" value="1"}checked{/eq}>
+                            <label for="purees-checkbox-1">不可以</label>
+                        </div>
+                    </div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">饼干（Slow Feed）</td>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">左边</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="slow_feed[left]"><option></option><option value="1" {eq name="report.report_a.om.feeding.slow_feed.left" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.slow_feed.left" value="0"}selected{/eq}>不可以</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">右边</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="slow_feed[right]"><option></option><option value="1" {eq name="report.report_a.om.feeding.slow_feed.right" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.slow_feed.right" value="0"}selected{/eq}>不可以</option></select>
+                        </div>
+                        <div class="checkbox col-sm-3">
+                            <input id="slow-feed-checkbox-1" class="magic-checkbox" type="checkbox" name="slow_feed_unable" value="1" {eq name="report.report_a.om.feeding.slow_feed.unable" value="1"}checked{/eq}>
+                            <label for="slow-feed-checkbox-1">不可以</label>
+                        </div>
+                    </div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="3">水/果汁（Straw Drinking）</td>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">奶瓶</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="milk_bottle"><option></option><option value="1" {eq name="report.report_a.om.feeding.straw_drinking.milk_bottle" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.straw_drinking.milk_bottle" value="0"}selected{/eq}>不可以</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">母乳</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="breast_feeding"><option></option><option value="1" {eq name="report.report_a.om.feeding.straw_drinking.breast_feeding" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.straw_drinking.breast_feeding" value="0"}selected{/eq}>不可以</option></select>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">小熊瓶</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="bear_bottle"><option></option><option value="1" {eq name="report.report_a.om.feeding.straw_drinking.bear_bottle" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.straw_drinking.bear_bottle" value="0"}selected{/eq}>不可以</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">吸管</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="straw_num" class="form-control" value="{$report.report_a.om.feeding.straw_drinking.straw}">
+                        </div>
+                        <div class="checkbox col-sm-3">
+                            <input id="straw-checkbox-1" class="magic-checkbox" type="checkbox" name="straw_unable" value="1" {eq name="report.report_a.om.feeding.straw_drinking.unable" value="1"}checked{/eq}>
+                            <label for="straw-checkbox-1">不可以</label>
+                        </div>
+                    </div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <label class="col-sm-2 control-label">剪口杯</label>
+                    <div class="radio">
+                        <!-- Inline radio buttons -->
+                        <input id="cup-drinking" class="magic-radio" type="radio" name="cup_drinking" value="1" {eq name="report.report_a.om.feeding.straw_drinking.cup_drinking" value="1"}checked{/eq}>
+                        <label for="cup-drinking">可以</label>
+                        <input id="cup-drinking1" class="magic-radio" type="radio" name="cup_drinking" value="0">
+                        <label for="cup-drinking1" {eq name="report.report_a.om.feeding.straw_drinking.cup_drinking" value="0"}checked{/eq}>不可以</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">酸奶（Thickened Liquids）</td>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">吸管</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="liquids_straw"><option></option><option value="A" {eq name="report.report_a.om.feeding.thickened_liquids.straw" value="A"}selected{/eq}>A</option><option value="B" {eq name="report.report_a.om.feeding.thickened_liquids.straw" value="B"}selected{/eq}>B</option><option value="C" {eq name="report.report_a.om.feeding.thickened_liquids.straw" value="C"}selected{/eq}>C</option><option value="D" {eq name="report.report_a.om.feeding.thickened_liquids.straw" value="D"}selected{/eq}>D</option><option value="0" {eq name="report.report_a.om.feeding.thickened_liquids.straw" value="0"}selected{/eq}>不可以</option></select>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="2" class="text-center">03 气息（Airflow）</td>
+                <td colspan="2">泡泡（Bubble）</td>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">层次</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="bubble_step" class="form-control" value="{$report.report_a.om.airflow.bubble.step}">
+                        </div>
+                        <label class="col-sm-2 control-label" >次数</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="bubble_times" class="form-control" value="{$report.report_a.om.airflow.bubble.times}">
+                        </div>
+                        <div class="checkbox col-sm-3">
+                            <input id="bubble-checkbox-1" class="magic-checkbox" type="checkbox" name="bubble_unable" value="1" {eq name="report.report_a.om.airflow.bubble.unable" value="1"}checked{/eq}>
+                            <label for="bubble-checkbox-1">不可以</label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">笛子（Horn）</td>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">笛子</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="horn_num" class="form-control" value="{$report.report_a.om.airflow.horn.num}">
+                        </div>
+                        <label class="col-sm-2 control-label">次数</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="horn_times" class="form-control" value="{$report.report_a.om.airflow.horn.times}">
+                        </div>
+                        <div class="checkbox col-sm-3">
+                            <input id="horn-checkbox-1" class="magic-checkbox" type="checkbox" name="horn_unable" value="1" {eq name="report.report_a.om.airflow.horn.unable" value="1"}checked{/eq}>
+                            <label for="horn-checkbox-1" >不可以</label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="6" class="text-center">04 下颚稳定性（Jaw Stability）</td>
+                <td colspan="8">
+                    <div class="form-group">
+                        
+                        <label class="col-sm-2 control-label">手指套</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="finger_sleeve" class="form-control" value="{$report.report_a.om.jaw_stability.finger_sleeve}">
+                        </div>
+                        <label class="col-sm-3 control-label">牙胶振动棒</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="z_vibe" class="form-control" value="{$report.report_a.om.jaw_stability.z_vibe}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">1#咬牙胶</label>
+                        <label class="col-sm-1 control-label">左</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[1][left]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_1.left}">
+                        </div>
+                        <label class="col-sm-1 control-label">右</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[1][right]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_1.right}">
+                        </div>
+                        <label class="col-sm-1 control-label">双咬</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[1][both]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_1.both}">
+                        </div>
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">2#咬牙胶</label>
+                        <label class="col-sm-1 control-label">左</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[2][left]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_2.left}">
+                        </div>
+                        <label class="col-sm-1 control-label">右</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[2][right]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_2.right}">
+                        </div>
+                        <label class="col-sm-1 control-label">双咬</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[2][both]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_2.both}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">3#咬牙胶</label>
+                        <label class="col-sm-1 control-label">左</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[3][left]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_3.left}">
+                        </div>
+                        <label class="col-sm-1 control-label">右</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[3][right]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_3.right}">
+                        </div>
+                        <label class="col-sm-1 control-label">双咬</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[3][both]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_3.both}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">4#咬牙胶</label>
+                        <label class="col-sm-1 control-label">左</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[4][left]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_4.left}">
+                        </div>
+                        <label class="col-sm-1 control-label">右</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[4][right]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_4.right}">
+                        </div>
+                        <label class="col-sm-1 control-label">双咬</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[4][both]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_4.both}"> 
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">5#咬牙胶</label>
+                        <label class="col-sm-1 control-label">左</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[5][left]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_5.left}">
+                        </div>
+                        <label class="col-sm-1 control-label">右</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[5][right]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_5.right}">
+                        </div>
+                        <label class="col-sm-1 control-label">双咬</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="chewy_tube[5][both]" class="form-control" value="{$report.report_a.om.jaw_stability.chewy_tube_5.both}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="4" class="text-center">05 唇（Lips）</td>
+                <td colspan="4">
+                    <div class="radio">
+                        <input id="lips-radio-1" class="magic-radio" type="radio" name="lips_radio" value="2" {eq name="report.report_a.om.lips.radios" value="2"}checked{/eq}>
+                        <label for="lips-radio-1">好</label>
+                        <input id="lips-radio-2" class="magic-radio" type="radio" name="lips_radio" value="1" {eq name="report.report_a.om.lips.radios" value="1"}checked{/eq}>
+                        <label for="lips-radio-2" >一般</label>
+                        <input id="lips-radio-3" class="magic-radio" type="radio" name="lips_radio" value="0" {eq name="report.report_a.om.lips.radios" value="0"}checked{/eq}>
+                        <label for="lips-radio-3" >不好</label>
+                    </div>
+                </td>
+                <td colspan="4">
+                    <div class="checkbox">
+                        <input id="lips-checkbox-1" class="magic-checkbox" type="checkbox" name="lips[]"  {in name="1" value="$report.report_a.om.lips.checked"}checked{/in} value="1">
+                        <label for="lips-checkbox-1">合唇</label>
+                        <input id="lips-checkbox-2" class="magic-checkbox" type="checkbox" name="lips[]" {in name="2" value="$report.report_a.om.lips.checked"}checked{/in} value="2">
+                        <label for="lips-checkbox-2">展唇</label>
+                        <input id="lips-checkbox-3" class="magic-checkbox" type="checkbox" name="lips[]" {in name="3" value="$report.report_a.om.lips.checked"}checked{/in} value="3">
+                        <label for="lips-checkbox-3">圆唇</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">合唇用压舌棒</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="lips_closure" class="form-control" value="{$report.report_a.om.lips.closure}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">纽扣拉力训练器</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="lips_button_pull" class="form-control" value="{$report.report_a.om.lips.button_pull}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">脆骨下唇回缩练习</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="lips_retraction" class="form-control" value="{$report.report_a.om.lips.retraction}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="5" class="text-center">06 舌灵活性（Tongue Flexibility）</td>
+                <td colspan="8" rowspan="2">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">前伸</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="tongue_protrusion"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.protrusion" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.protrusion" value="0"}selected{/eq}>×</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">回缩</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="tongue_retraction"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.retraction" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.retraction" value="0"}selected{/eq}>×</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">左</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="tongue_left"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.left" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.left" value="0"}selected{/eq}>×</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">右</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="tongue_right"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.right" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.right" value="0"}selected{/eq}>×</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">上</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="tongue_elevation"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.elevation" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.elevation" value="0"}selected{/eq}>×</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">下</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="tongue_depression"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.depression" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.depression" value="0"}selected{/eq}>×</option></select>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">前伸/回缩舌尖训练器（月牙形）</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="tongue_a" class="form-control" value="{$report.report_a.om.tongue_flexibility.content_a}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">舌尖两侧转移训练</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="tongue_b" class="form-control" value="{$report.report_a.om.tongue_flexibility.content_b}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">舌尖提升/下压训练</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="tongue_c" class="form-control" value="{$report.report_a.om.tongue_flexibility.content_c}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">07 吞咽（Swallowing）</td>
+                <td colspan="8">
+                    <div class="radio">
+                        <!-- Inline radio buttons -->
+                        <input id="swallowing-radio" class="magic-radio" type="radio" name="swallowing" value="2" {eq name="report.report_a.om.swallowing" value="2"}checked{/eq}>
+                        <label for="swallowing-radio">好</label>
+                        <input id="swallowing-radio1" class="magic-radio" type="radio" name="swallowing" value="1" {eq name="report.report_a.om.swallowing" value="1"}checked{/eq}>
+                        <label for="swallowing-radio1">一般</label>
+                        <input id="swallowing-radio2" class="magic-radio" type="radio" name="swallowing" value="0" {eq name="report.report_a.om.swallowing" value="0"}checked{/eq}>
+                        <label for="swallowing-radio2">不好</label>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="text-semibold text-main pad-all mar-no">发音测试-SP</p>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td rowspan="6" colspan="2" class="text-center" style="vertical-align: middle">检测能发哪些音</td>
+                <td colspan="5">声母</td>
+                <td colspan="5">韵母</td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="initials" id="vo" offset="0" length="4"}
+                        <input id="initials-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="initials[can][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.existing_syllables.initials"}checked{/in}>
+                        <label for="initials-checkbox-{$key}">{$vo.name}</label>
+                        {/volist}
+                    </div>
+                </td>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="finals" id="vo" offset="0" length="5"}
+                        <input id="finals-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="finals[can][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.existing_syllables.finals"}checked{/in}>
+                        <label for="finals-checkbox-{$key}">{$vo.name}</label>
+                        {/volist}
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="initials" id="vo" offset="4" length="4"}
+                        <input id="initials-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="initials[can][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.existing_syllables.initials"}checked{/in}>
+                        <label for="initials-checkbox-{$key}">{$vo.name}</label>
+                        {/volist}
+                    </div>
+                </td>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="finals" id="vo" offset="5" length="3"}
+                        <input id="finals-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="finals[can][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.existing_syllables.finals"}checked{/in}>
+                        <label for="finals-checkbox-{$key}">{$vo.name}</label>
+                        {/volist}
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5"">
+                    <div class="checkbox">
+                        {volist name="initials" id="vo" offset="8" length="7"}
+                        <input id="initials-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="initials[can][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.existing_syllables.initials"}checked{/in}>
+                        <label for="initials-checkbox-{$key}">{$vo.name}</label>
+                        {/volist}
+                    </div>
+                </td>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="finals" id="vo" offset="8" length="3"}
+                        <input id="finals-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="finals[can][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.existing_syllables.finals"}checked{/in}>
+                        <label for="finals-checkbox-{$key}">{$vo.name}</label>
+                        {/volist}
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="initials" id="vo" offset="15" length="3"}
+                        <input id="initials-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="initials[can][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.existing_syllables.initials"}checked{/in}>
+                        <label for="initials-checkbox-{$key}">{$vo.name}</label>
+                        {/volist}
+                    </div>
+                </td>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="finals" id="vo" offset="11" length="5"}
+                        <input id="finals-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="finals[can][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.existing_syllables.finals"}checked{/in}>
+                        <label for="finals-checkbox-{$key}">{$vo.name}</label>
+                        {/volist}
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="initials" id="vo" offset="18" length="3"}
+                        <input id="initials-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="initials[can][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.existing_syllables.initials"}checked{/in}>
+                        <label for="initials-checkbox-{$key}">{$vo.name}</label>
+                        {/volist}
+                    </div>
+                </td>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="finals" id="vo" offset="16" length="4"}
+                        <input id="finals-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="finals[can][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.existing_syllables.finals"}checked{/in}>
+                        <label for="finals-checkbox-{$key}">{$vo.name}</label>
+                        {/volist}
+                        
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td rowspan="6" colspan="2" class="text-center" style="vertical-align: middle">发音清晰度检测不清晰、不能发</td>
+                <td colspan="5">声母</td>
+                <td colspan="5">韵母</td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="initials" id="vo" offset="0" length="4"}
+                        <input id="initials-checkbox1-{$key}" class="magic-checkbox" type="checkbox" name="initials[cannot][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.not_clear_syllables.initials"}checked{/in}>
+                        <label for="initials-checkbox1-{$key}">{$vo.name}</label>
+                        {/volist}
+                    </div>
+                </td>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="finals" id="vo" offset="0" length="5"}
+                        <input id="finals-checkbox1-{$key}" class="magic-checkbox" type="checkbox" name="finals[cannot][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.not_clear_syllables.finals"}checked{/in}>
+                        <label for="finals-checkbox1-{$key}">{$vo.name}</label>
+                        {/volist}
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="initials" id="vo" offset="4" length="4"}
+                        <input id="initials-checkbox1-{$key}" class="magic-checkbox" type="checkbox" name="initials[cannot][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.not_clear_syllables.initials"}checked{/in}>
+                        <label for="initials-checkbox1-{$key}">{$vo.name}</label>
+                        {/volist}
+                    </div>
+                </td>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="finals" id="vo" offset="5" length="3"}
+                        <input id="finals-checkbox1-{$key}" class="magic-checkbox" type="checkbox" name="finals[cannot][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.not_clear_syllables.finals"}checked{/in}>
+                        <label for="finals-checkbox1-{$key}">{$vo.name}</label>
+                        {/volist}
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5"">
+                    <div class="checkbox">
+                        {volist name="initials" id="vo" offset="8" length="7"}
+                        <input id="initials-checkbox1-{$key}" class="magic-checkbox" type="checkbox" name="initials[cannot][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.not_clear_syllables.initials"}checked{/in}>
+                        <label for="initials-checkbox1-{$key}">{$vo.name}</label>
+                        {/volist}
+                    </div>
+                </td>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="finals" id="vo" offset="8" length="3"}
+                        <input id="finals-checkbox1-{$key}" class="magic-checkbox" type="checkbox" name="finals[cannot][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.not_clear_syllables.finals"}checked{/in}>
+                        <label for="finals-checkbox1-{$key}">{$vo.name}</label>
+                        {/volist}
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="initials" id="vo" offset="15" length="3"}
+                        <input id="initials-checkbox1-{$key}" class="magic-checkbox" type="checkbox" name="initials[cannot][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.not_clear_syllables.initials"}checked{/in}>
+                        <label for="initials-checkbox1-{$key}">{$vo.name}</label>
+                        {/volist}
+                    </div>
+                </td>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="finals" id="vo" offset="11" length="5"}
+                        <input id="finals-checkbox1-{$key}" class="magic-checkbox" type="checkbox" name="finals[cannot][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.not_clear_syllables.finals"}checked{/in}>
+                        <label for="finals-checkbox1-{$key}">{$vo.name}</label>
+                        {/volist}
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="initials" id="vo" offset="18" length="3"}
+                        <input id="initials-checkbox1-{$key}" class="magic-checkbox" type="checkbox" name="initials[cannot][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.not_clear_syllables.initials"}checked{/in}>
+                        <label for="initials-checkbox1-{$key}">{$vo.name}</label>
+                        {/volist}
+                    </div>
+                </td>
+                <td colspan="5">
+                    <div class="checkbox">
+                        {volist name="finals" id="vo" offset="16" length="4"}
+                        <input id="finals-checkbox1-{$key}" class="magic-checkbox" type="checkbox" name="finals[cannot][]" value="{$vo.name}" {in name="vo.name" value="$report.report_a.sp.not_clear_syllables.finals"}checked{/in}>
+                        <label for="finals-checkbox1-{$key}">{$vo.name}</label>
+                        {/volist}
+                        
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td colspan="2" class="text-center">能发的叠音和词组</td>
+                <td colspan="10" >
+                    <textarea class="form-control" name="sp_content">{$report.report_a.sp.content}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">口鼻分离麦克风测试</td>
+                <td colspan="10">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">声线</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="sp_voice" class="form-control" value="{$report.report_a.sp.nasality.voice}">
+                        </div>
+                        <label class="col-sm-1 control-label">声调</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="sp_tone" class="form-control" value="{$report.report_a.sp.nasality.tone}">
+                        </div>
+                        <label class="col-sm-1 control-label">音量</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="sp_volume" class="form-control" value="{$report.report_a.sp.nasality.volume}">
+                        </div>
+                        <label class="col-sm-1 control-label">鼻音测试</label>
+                        <div class="col-sm-2">
+                            <input type="text" name="sp_nasality" class="form-control" value="{$report.report_a.sp.nasality.nasality}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            
+        </tbody>
+    </table>
+    <p class="text-semibold text-main pad-all mar-no">口肌发音评估小结-Summary of OMP Evaluation</p>
+    <table class="table table-bordered">
+        <tbody>
+
+            <tr>
+                <td colspan="12">
+                    <textarea name="content" class="form-control" rows="6">{$report.report_a.content}</textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-7 col-sm-offset-1">
+                <button class="btn btn-mint" type="submit">保存</button>
+            </div>
+        </div>
+    </div>
+</form>

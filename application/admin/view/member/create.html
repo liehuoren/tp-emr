@@ -1,0 +1,394 @@
+{extend name="Public/base" /}
+{block name="css"}
+<!--Chosen [ OPTIONAL ]-->
+<link href="__PLUGINS__/chosen/chosen.min.css" rel="stylesheet">
+<link href="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
+{/block}
+{block name="js"}
+<!--Chosen [ OPTIONAL ]-->
+<script src="__PLUGINS__/chosen/chosen.jquery.min.js"></script>
+<script src="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.js"></script>
+<script src="__PLUGINS__/mask/jquery.mask.min.js"></script>
+<script src="__JS__/member/member.js"></script>
+{/block}
+{block name="content"}
+<div id="content-container">
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">新增学员</h1>
+    </div>
+
+    <!--Breadcrumb-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+        <li><a href="{:url('admin/index/index')}">主页</a></li>
+        <li><a href="{:url('admin/member/index')}">学员库</a></li>
+        <li class="active">学员管理-新增</li>
+    </ol>
+
+    <div id="page-content">
+        <form action="{:url('admin/member/save')}" method="post" class="form-horizontal" id="member-form">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">新增学员信息</h3>
+            </div> 
+            <div class="panel-body">
+                
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">学员姓名</label>
+                                <div class="col-lg-7">
+                                    <input type="text" class="form-control" name="name" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">出生日期</label>
+                                <div class="col-lg-7">
+                                    <input type="text" class="form-control" id="birth-date" name="birthday" value="">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">性别</label>
+                                <div class="col-lg-7">
+                                    <div class="radio">
+                                        <!-- Inline radio buttons -->
+                                        <input id="form-sex0" class="magic-radio" type="radio" name="sex" value="0">
+                                        <label for="form-sex0">未知</label>
+                                        <input id="form-sex1" class="magic-radio" type="radio" name="sex" value="1">
+                                        <label for="form-sex1">男</label>
+            
+                                        <input id="form-sex2" class="magic-radio" type="radio" name="sex" value="2">
+                                        <label for="form-sex2">女</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">是否缴费</label>
+                                <div class="col-lg-7">
+                                    <div class="radio">
+                                        <!-- Inline radio buttons -->
+                                        <input id="form-pay0" class="magic-radio" type="radio" name="is_pay" value="0">
+                                        <label for="form-pay0">未知</label>
+                                        <input id="form-pay1" class="magic-radio" type="radio" name="is_pay" value="1">
+                                        <label for="form-pay1">是</label>
+            
+                                        <input id="form-pay2" class="magic-radio" type="radio" name="is_pay" value="2">
+                                        <label for="form-pay2">否</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">医学临床症状</label>
+                                <div class="col-lg-7">
+                                    {:widget('diagnosis/index')}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">言语问题</label>
+                                <div class="col-lg-7">
+                                    {:widget('problem/index')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">渠道来源</label>
+                                <div class="col-lg-7">
+                                    <select id="underway-chosen-select" tabindex="1" name="first_under" aria-hidden="true" class="form-control">
+                                        <option></option>
+                                        {volist name="underway" id="vo"}
+                                            <option value="{$vo.id}">{$vo.name}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">首次联系方式</label>
+                                <div class="col-lg-7">
+                                    <select data-placeholder="请选择.." id="touchway-chosen-select" tabindex="1" name="first_touch" class="form-control">
+                                        <option></option>
+                                        {volist name="touchway" id="vo"}
+                                            <option value="{$vo.id}">{$vo.name}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">语言种类</label>
+                                <div class="col-lg-7 input-group date">
+                                    <input type="text" class="form-control" name="language" value="">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">建档填写日期</label>
+                                <div class="col-lg-7 input-group date">
+                                    <input type="text" class="form-control" id="reg-date" name="reg_time" value="">
+                                    <span class="input-group-addon"><i class="demo-pli-calendar-4"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">所在校区</label>
+                                <div class="col-lg-7">
+                                    {:widget('center/index')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">手机</label>
+                                <div class="col-lg-7">
+                                    <input type="text" class="form-control" placeholder="" name="mobile">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">电话</label>
+                                <div class="col-lg-7 input-group date">
+                                    <input type="text" class="form-control" name="phone">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">QQ</label>
+                                <div class="col-lg-7">
+                                    <input type="text" class="form-control" name="qq" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">微信</label>
+                                <div class="col-lg-7 input-group date">
+                                    <input type="text" class="form-control" name="weixin">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                {:widget('City/index',['pid'=>0,'cid'=>0,'did'=>0])}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">详细住址</label>
+                                <div class="col-lg-7">
+                                    <input type="text" class="form-control" name="address" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">备注</label>
+                                <div class="col-lg-9">
+                                    <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="others"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">高危因素及既往史</label>
+                                <div class="col-lg-9">
+                                    <div class="checkbox">
+                                        <!-- Inline Checkboxes -->
+                                        {volist name="history" id="vo"}
+                                        <input id="history-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="history[checked][]" value="{$vo.id}">
+                                        <label for="history-checkbox-{$key}">{$vo.cn_name}（{$vo.en_name}）</label>
+                                        {/volist}
+                                        <input id="history-checkbox-other" class="magic-checkbox" type="checkbox" name="history[other]" value="1">
+                                        <label for="history-checkbox-other">其它</label>
+                                        <input type="text" class="form-control hidden" name="history_other" placeholder="其它" >
+                                    </div>
+                                    
+                                    <script type="text/javascript">
+                                        $(function(){
+                                            $('#history-checkbox-other').change(function(){
+                                                if($(this).is(':checked')){
+                                                    $('[name=history_other]').removeClass("hidden");
+                                                }else{
+                                                    $('[name=history_other]').addClass("hidden");
+                                                }
+                                            });
+                                        })
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">目前发音能力</label>
+                                <div class="col-lg-9">
+                                    <div class="checkbox">
+                                        <!-- Inline Checkboxes -->
+                                        {volist name="ability" id="vo"}
+                                        <input id="ability-checkbox-{$key}" class="magic-checkbox" type="checkbox" name="ability[]" value="{$vo.id}">
+                                        <label for="ability-checkbox-{$key}">{$vo.cn_name}（{$vo.en_name}）</label>
+                                        {/volist}
+                                    </div>
+                                    <input type="text" class="form-control" name="ability_other" placeholder="其它">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">最担忧的问题是什么？</label>
+                                <div class="col-lg-9">
+                                    <textarea id="concern-textarea-input" rows="9" class="form-control" placeholder="" name="main_concern"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">现阶段康复情况</label>
+                                <div class="col-lg-9">
+                                    <textarea id="present-textarea-input" rows="9" class="form-control" placeholder="" name="present_speech"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">言语发展情况</label>
+                                <div class="col-lg-7">
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">呀呀学语：</span>
+                                        <input type="text" class="form-control" name="babbling">
+                                        <span class="input-group-addon">月</span>
+                                    </div>
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">第一个词汇：</span>
+                                        <input type="text" class="form-control" name="first_word">
+                                        <span class="input-group-addon">岁</span>
+                                    </div>
+                                    <div class="input-group mar-btm">
+                                        <span class="input-group-addon">两个词汇组合：</span>
+                                        <input type="text" class="form-control" name="phrase">
+                                        <span class="input-group-addon">岁</span>
+                                    </div>
+                                    <div class="form-group pad-ver">
+                                        <label class="col-md-6 control-label">原来开始说话了，却突然停止说话了</label>
+                                        <div class="col-md-6">
+                                            <div class="radio">
+                    
+                                                <!-- Inline radio buttons -->
+                                                <input id="is-stop" class="magic-radio" type="radio" name="is_stop" value="1">
+                                                <label for="is-stop">是</label>
+                                                <input id="is-stop2" class="magic-radio" type="radio" name="is_stop">
+                                                <label for="is-stop2" value="0">否</label>
+                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                <!-- <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">亲属联系方式<span class="text-danger text-sm"></span></h3>
+                    </div>
+        
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>电话</th>
+                                <th>微信号</th>
+                                <th>亲属关系</th>
+                            </tr>
+                        </thead>
+        
+                        <tbody>
+                            <tr>
+                                <td><input type="text" class="form-control" name="parent_name[]"></td>
+                                <td><input type="text" class="form-control" name="parent_mobile[]"></td>
+                                <td><input type="text" class="form-control" name="parent_weixin[]"></td>
+                                <td><input type="text" class="form-control" name="parent_relation[]"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> -->
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-7 col-sm-offset-4">
+                            <button class="btn btn-primary" type="submit">新增</button>
+                            <a href="{:url('admin/member/index')}" class="btn btn-info"> 返回</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+{/block}

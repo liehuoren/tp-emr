@@ -1,0 +1,64 @@
+{extend name="Public:base" /}
+{block name="content"}
+<div id="content-container">     
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">权限角色</h1>
+    </div>
+
+    <!--Breadcrumb-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+        <li><a href="{:url('admin/index/index')}">主页</a></li>
+        <li class="active">权限角色</li>
+    </ol>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End breadcrumb-->
+
+    <!--Page content-->
+    <!--===================================================-->
+    <div id="page-content">
+        <!--Basic Columns-->
+        <!--===================================================-->
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">权限角色-列表</h3>
+            </div>
+            <div class="panel-body">
+                <div class="pad-btm form-inline">
+                    <div class="row">
+                        <div class="col-sm-6 table-toolbar-left">
+                            <a href="{:url('admin/role/create')}" class="btn btn-primary"><i class="demo-pli-add"></i> 新增</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>角色名</th>
+                                <th>角色描述</th>
+                                <th>角色状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {volist name="list" id="vo"}
+                            <tr>
+                                <td>{$vo.id}</td>
+                                <td>{$vo.name}</td>
+                                <td>{$vo.description}</td>
+                                <td><span class="label {$vo.status_class}">{$vo.status_text}</span></td>
+                                <td><a href="{:url('admin/role/edit',['id'=>$vo['id']])}" ><span class="label label-primary"><i class="demo-psi-pen-5"></i>编辑</span> </a></td>
+                            </tr>
+                            {/volist}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

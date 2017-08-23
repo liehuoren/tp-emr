@@ -1,0 +1,62 @@
+<div class="modal fade" id="report-plan-modal" role="dialog" tabindex="-1" aria-labelledby="report-plan-modal" aria-hidden="true">
+    <div class="modal-dialog" style="width: 1000px;">
+        <div class="modal-content">
+
+            <!--Modal header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title">新增训练方案</h4>
+            </div>
+
+            <!--Modal body-->
+            <form class="form-horizontal" action="{:url('admin/report/updatePlan',['id'=>$report['id']])}" method="post" id="report-training-plan">
+            <div class="modal-body">
+                <p class="bord-btm pad-ver text-main text-bold">A 口肌发音  Oral Motor Pronunciation</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_a"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="bord-btm pad-ver text-main text-bold">B 理解认知、逻辑表达  Cognitive comprehension,Logic Expression</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_b"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="bord-btm pad-ver text-main text-bold">C 大小肌肉、感统、专注力  Gross and Fine Motor, Sensory, Attention</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_c"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="bord-btm pad-ver text-main text-bold">STAR 课程</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_d"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal footer-->
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+                <button class="btn btn-primary" type="submit">保存</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    
+</script>

@@ -1,0 +1,44 @@
+<form class="form-horizontal" action="{:url('admin/report/updatePlan',['id'=>$report['id']])}" method="post" id="report-training-plan">
+    <p class="bord-btm pad-ver text-main text-bold">A 口肌发音  Oral Motor Pronunciation</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_a">{$report.training_plan.content_a|default=""}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <p class="bord-btm pad-ver text-main text-bold">B 理解认知、逻辑表达  Cognitive comprehension,Logic Expression</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_b">{$report.training_plan.content_b|default=""}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <p class="bord-btm pad-ver text-main text-bold">C 大小肌肉、感统、专注力  Gross and Fine Motor, Sensory, Attention</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_c">{$report.training_plan.content_c|default=""}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <p class="bord-btm pad-ver text-main text-bold">STAR 课程</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_d">{$report.training_plan.content_d|default=""}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-mint" type="submit">新增</button>
+            </div>
+        </div>
+    </div>
+</form>

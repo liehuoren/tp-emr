@@ -1,0 +1,215 @@
+{extend name="Admin:base" /}
+{block name="title"}注册{/block}
+{block name="js"}
+<script src="__PLUGINS__/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+<script src="__JS__/admin/register.js"></script>
+{/block}
+{block name="content"}
+<div class="cls-content">
+    <div class="cls-content-lg panel" style="width:800px;">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <hr class="new-section-sm bord-no">
+                    <h4 class="text-main pad-btm bord-btm">注册新的账号</h4>
+                    <div class="panel" style="border:0px;box-shadow: none">
+                        <!-- Circular Form Wizard -->
+                        <!--===================================================-->
+                        <div id="register-bv-wz">
+                            <div class="wz-heading pad-ver">
+            
+                                <!--Progress bar-->
+                                <div class="progress progress-xs progress-light-base">
+                                    <div class="progress-bar progress-bar-primary"></div>
+                                </div>
+            
+                                <!--Nav-->
+                                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                                <ul class="wz-nav-off">
+                                    <li class="col-xs-3">
+                                        <a data-toggle="tab" href="#demo-bv-tab1" title="登录账户" class="add-tooltip">
+                                            <div class="icon-wrap icon-wrap-sm bg-gray">
+                                                <i class="wz-icon demo-pli-information icon-lg"></i>
+                                                <i class="wz-icon-done demo-pli-like icon-lg"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="col-xs-3">
+                                        <a data-toggle="tab" href="#demo-bv-tab2" title="个人信息" class="add-tooltip">
+                                            <div class="icon-wrap icon-wrap-sm bg-gray">
+                                                <i class="wz-icon demo-pli-male icon-lg"></i>
+                                                <i class="wz-icon-done demo-pli-like icon-lg"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="col-xs-3">
+                                        <a data-toggle="tab" href="#demo-bv-tab3" title="密码设置" class="add-tooltip">
+                                            <div class="icon-wrap icon-wrap-sm bg-gray">
+                                                <i class="wz-icon demo-pli-home icon-lg"></i>
+                                                <i class="wz-icon-done demo-pli-like icon-lg"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="col-xs-3">
+                                        <a data-toggle="tab" href="#demo-bv-tab4" title="完成" class="add-tooltip">
+                                            <div class="icon-wrap icon-wrap-sm bg-gray">
+                                                <i class="wz-icon demo-pli-medal-2 icon-lg"></i>
+                                                <i class="wz-icon-done demo-pli-like icon-lg"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+            
+                            <!--Form-->
+                            <form class="form-horizontal" id="register-bv-wz-form" method="post" action="{:url('admin/Admin/doRegister')}">
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <!--First tab-->
+                                        <div id="demo-bv-tab1" class="tab-pane">
+                                            <div class="form-group">
+                                                <label class="col-lg-3 control-label">邮箱地址</label>
+                                                <div class="col-lg-7">
+                                                    <input type="hidden" name="type" value="2">
+                                                    <input type="email" class="form-control" name="email" placeholder="请输入您的邮箱地址作为登录账号">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-3 control-label">验证码</label>
+                                                <div class="col-lg-7 input-group mar-btm">
+                                                    <input type="text" class="form-control" name="verify" placeholder="请输入验证码">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-mint" id="getverify" type="button">发送验证码</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+            
+                                        <!--Second tab-->
+                                        <div id="demo-bv-tab2" class="tab-pane fade">
+                                            <div class="form-group">
+                                                <label class="col-lg-3 control-label">昵称</label>
+                                                <div class="col-lg-7">
+                                                    <input type="text" placeholder="请输入昵称" name="nickname" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-3 control-label">真实姓名</label>
+                                                <div class="col-lg-7">
+                                                    <input type="text" placeholder="请输入真实姓名" name="fullname" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+            
+                                        <!--Third tab-->
+                                        <div id="demo-bv-tab3" class="tab-pane">
+                                            <div class="form-group">
+                                                <label class="col-lg-3 control-label">密码设置</label>
+                                                <div class="col-lg-7">
+                                                    <input type="password" placeholder="请输入登录密码（不少于6位字符）" name="password" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-3 control-label">密码确认</label>
+                                                <div class="col-lg-7">
+                                                    <input type="password" placeholder="请再次输入您的密码" name="rpassword" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+            
+                                        <!--Fourth tab-->
+                                        <div id="demo-bv-tab4" class="tab-pane  mar-btm text-center">
+                                            <h4>欢迎</h4>
+                                            <p>点击“注册”按钮即可注册您的账号，稍后会为您开通相对应的权限，请注意查看您的邮箱，如若等待较长时间请联系系统管理员：web@ostspeech.com</p>
+                                        </div>
+            
+                                    </div>
+                                </div>
+            
+                                <!--Footer button-->
+                                <div class="panel-footer text-right">
+                                    <div class="box-inline">
+                                        <button type="button" class="previous btn btn-primary">上一步</button>
+                                        <button type="button" class="next btn btn-primary">下一步</button>
+                                        <button type="submit" class="finish btn btn-warning" disabled>注册</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--===================================================-->
+                        <!-- End Circular Form Wizard -->
+            
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+        <div class="pad-all">
+            已经有账号 ? <a href="login.html" class="btn-link mar-rgt">登录</a>
+
+            <div class="media pad-top bord-top">
+                <div class="pull-right">
+                    <a href="#" class="pad-rgt" title="暂未开通"><i class="demo-psi-facebook icon-lg text-primary"></i></a>
+                    <a href="#" class="pad-rgt" title="暂未开通"><i class="demo-psi-twitter icon-lg text-info"></i></a>
+                    <a href="#" class="pad-rgt" title="暂未开通"><i class="demo-psi-google-plus icon-lg text-danger"></i></a>
+                </div>
+                <div class="media-body text-left text-muted">
+                    登录
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script type="text/javascript">
+
+    $("#getverify").click(function () {
+
+        var bootstrapValidator = $("#register-bv-wz-form").data('bootstrapValidator');  
+        var error = bootstrapValidator.isValidField('email');
+        if(error==false){
+            layer.msg('账号不能为空');
+            return false;
+        }
+        var $this = $(this);
+        
+        var email= $this.parents('.tab-pane').find('[name="email"]').val();
+        
+        
+
+        $.post("{:url('admin/admin/sendVerify')}", {account: email}, function (res) {
+            if (res.status) {
+                DecTime.obj = $this
+                DecTime.time = "60";
+                $this.attr('disabled',true)
+                DecTime.dec_time();
+
+                layer.msg('验证码已成功发送至您的邮箱', {icon: 6});
+            }
+            else {
+                layer.msg(res.info, {icon: 5});
+            }
+            
+        })
+    })
+
+    var DecTime = {
+            obj:0,
+            time:0,
+            dec_time : function(){
+                if(this.time > 0){
+                    this.obj.text(this.time--+'S')
+                    setTimeout("DecTime.dec_time()",1000)
+                }else{
+                    this.obj.text("发送验证码")
+                    this.obj.attr('disabled',false)
+                }
+
+            }
+        }
+
+</script>
+    
+{/block}

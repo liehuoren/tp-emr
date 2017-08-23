@@ -1,0 +1,98 @@
+<div class="modal fade" id="report-c-modal" role="dialog" tabindex="-1" aria-labelledby="report-modal" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px;">
+        <div class="modal-content">
+
+            <!--Modal header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title">新增训练报告</h4>
+            </div>
+
+            <!--Modal body-->
+            <form class="form-horizontal" action="{:url('admin/training/save')}" method="post" id="training-c-form">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">学员姓名</label>
+                            <div class="col-lg-7">
+                                <input type="hidden" name="stu_id" value="{$info.id}">
+                                <input type="text" class="form-control" placeholder="" value="{$info.name}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">治疗师姓名</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" placeholder="" name="t_name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">训练时间</label>
+                            <div class="col-lg-7">
+                                <input type="text" id="training-c-date" class="form-control" placeholder="" name="training_time">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">触觉、前庭觉、本体觉</label>
+                            <div class="col-lg-7">
+                                <textarea class="form-control" rows="9" name="content[tactile]"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">专注力</label>
+                            <div class="col-lg-7">
+                                <textarea class="form-control" rows="9" name="content[attention]"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">互动社交</label>
+                            <div class="col-lg-7">
+                                <textarea class="form-control" rows="9" name="content[interaction]"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">大小肌肉</label>
+                            <div class="col-lg-7">
+                                <textarea class="form-control" rows="9" name="content[fine]"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">课堂表现</label>
+                            <div class="col-lg-7">
+                                <textarea class="form-control" rows="9" name="content[performance]"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal footer-->
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+                <button class="btn btn-primary" type="submit">保存</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    
+</script>

@@ -1,0 +1,12 @@
+<select id="speech-chosen-select" data-placeholder="请选择" tabindex="1" name="problem[]" multiple aria-hidden="true" class="form-control">
+    <option></option>
+    {volist name="problem" id="vo"}
+    {eq name="vo.pid" value="0"}<optgroup label="{$vo.cn_name}（{$vo.en_name}）">
+        {volist name="problem" id="vv"}
+        {eq name="vv.pid" value="$vo.id"}
+        <option value="{$vv.id}" {in name="vv.id" value="$pro_id"}selected{/in}>{$vv.cn_name}（{$vv.en_name}）</option>
+        {/eq}
+        {/volist}
+    </optgroup>{/eq}
+    {/volist}
+</select>

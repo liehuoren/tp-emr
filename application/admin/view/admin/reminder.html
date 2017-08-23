@@ -1,0 +1,82 @@
+{extend name="Admin:base" /}
+{block name="title"}找回密码{/block}
+{block name="js"}
+<script src="__PLUGINS__/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+<script src="__JS__/admin/reminder.js"></script>
+{/block}
+{block name="content"}
+<div class="cls-content">
+    <div class="cls-content-sm panel">
+        <div class="panel-body">
+            <div class="pad-ver">
+                <i class="pli-mail icon-3x"></i>
+            </div>
+            <p class="text-muted pad-btm">请填写您注册的邮箱账号. </p>
+            <form action="{:url('admin/admin/doReminder')}" method="POST" id="reminder">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="邮箱地址" name="email">
+                </div>
+                <div class="form-group input-group mar-btm">
+                    <input type="text" class="form-control" placeholder="验证码" name="verify">
+                    <span class="input-group-btn">
+                        <button class="btn btn-mint " id="getverify" type="button">发送验证码</button>
+                    </span>
+                </div>
+                <div class="form-group text-right">
+                    <button class="btn btn-success btn-block" type="submit">找回密码</button>
+                </div>
+            </form>
+            <div class="pad-top">
+                <a href="{:url('admin/admin/login')}" class="btn-link mar-rgt">返回登录</a>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script type="text/javascript">
+    $("#getverify").click(function () {
+        var bootstrapValidator = $("#reminder").data('bootstrapValidator');  
+        var error = bootstrapValidator.isValidField('email');
+        if(error==false){
+            layer.msg('账号不能为空');
+            return false;
+        }
+
+        var $this = $(this);
+        
+        var email= $('[name="email"]').val();
+        
+        $.post("{:url('admin/admin/sendVerify')}", {account: email,scene:1}, function (res) {
+            if (res.status) {
+                DecTime.obj = $this
+                DecTime.time = "60";
+                $this.attr('disabled',true)
+                DecTime.dec_time();
+
+                layer.msg('验证码已成功发送至您的邮箱', {icon: 6});
+            }
+            else {
+                layer.msg(res.info, {icon: 5});
+            }
+            
+        })
+    })
+
+    var DecTime = {
+            obj:0,
+            time:0,
+            dec_time : function(){
+                if(this.time > 0){
+                    this.obj.text(this.time--+'S')
+                    setTimeout("DecTime.dec_time()",1000)
+                }else{
+                    this.obj.text("发送验证码")
+                    this.obj.attr('disabled',false)
+                }
+
+            }
+        }
+
+</script>
+{/block}

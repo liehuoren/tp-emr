@@ -1,0 +1,272 @@
+{extend name="Public/base" /}
+{block name="css"}
+<!--Switchery [ OPTIONAL ]-->
+<link href="__PLUGINS__/switchery/switchery.min.css" rel="stylesheet">
+<!--Bootstrap Select [ OPTIONAL ]-->
+<link href="__PLUGINS__/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+<!--Bootstrap Tags Input [ OPTIONAL ]-->
+<link href="__PLUGINS__/bootstrap-tagsinput/bootstrap-tagsinput.min.css" rel="stylesheet">
+<!--Chosen [ OPTIONAL ]-->
+<link href="__PLUGINS__/chosen/chosen.min.css" rel="stylesheet">
+<!--noUiSlider [ OPTIONAL ]-->
+<link href="__PLUGINS__/noUiSlider/nouislider.min.css" rel="stylesheet">
+<!--Select2 [ OPTIONAL ]-->
+<link href="__PLUGINS__/select2/css/select2.min.css" rel="stylesheet">
+<!--Bootstrap Timepicker [ OPTIONAL ]-->
+<link href="__PLUGINS__/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+<!--Bootstrap Datepicker [ OPTIONAL ]-->
+<link href="__PLUGINS__/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+<!--Magic Checkbox [ OPTIONAL ]-->
+<link href="__PLUGINS__/magic-check/css/magic-check.min.css" rel="stylesheet">
+{/block}
+{block name="js"}
+<!--Switchery [ OPTIONAL ]-->
+<script src="__PLUGINS__/switchery/switchery.min.js"></script>
+<!--Bootstrap Select [ OPTIONAL ]-->
+<script src="__PLUGINS__/bootstrap-select/bootstrap-select.min.js"></script>
+<!--Bootstrap Tags Input [ OPTIONAL ]-->
+<script src="__PLUGINS__/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+<!--Chosen [ OPTIONAL ]-->
+<script src="__PLUGINS__/chosen/chosen.jquery.min.js"></script>
+<!--noUiSlider [ OPTIONAL ]-->
+<script src="__PLUGINS__/noUiSlider/nouislider.min.js"></script>
+<!--Select2 [ OPTIONAL ]-->
+<script src="__PLUGINS__/select2/js/select2.min.js"></script>
+<!--Bootstrap Timepicker [ OPTIONAL ]-->
+<script src="__PLUGINS__/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+<!--Bootstrap Datepicker [ OPTIONAL ]-->
+<script src="__PLUGINS__/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<!--Summernote [ OPTIONAL ]-->
+<script src="__PLUGINS__/mask/jquery.mask.min.js"></script>
+<script src="__JS__/admin/profile.js"></script>
+{/block}
+{block name="content"}
+<div id="content-container">
+    <div id="page-title">
+        <div class="panel-control mar-top">
+            <a class="btn btn-sm btn-white " onclick="window.history.back();"><i class="fa fa-angle-left"></i> 返回</a>
+        </div>
+        <h1 class="page-header text-overflow">个人信息</h1>
+    </div>
+
+    <div id="page-content">
+        <div class="fixed-fluid">
+            <div class="fixed-sm-200 fixed-lg-250 pull-sm-left">
+                <div class="panel">
+                    <!-- Simple profile -->
+                    <div class="text-center pad-all bord-btm">
+                        <div class="pad-ver">
+                            <img src="{$userself.profile.avatar}" class="img-lg img-border img-circle" alt="Profile Picture">
+                        </div>
+                        <h4 class="text-lg text-overflow mar-no">{$userself.profile.fullname}</h4>
+        
+                    </div>
+                    <p class="text-semibold text-main pad-all mar-no">基本信息</p>
+                    <ul class="list-group bg-trans text-sm pad-btm">
+        
+                        <!-- Profile Details -->
+                        <li class="list-group-item list-item-sm text-primary text-semibold">
+                            邮箱： {$userself.email}
+                        </li>
+                        <li class="list-group-item list-item-sm text-primary text-semibold"> 
+                            手机号： {$userself.mobile}
+                        </li>
+                        <li class="list-group-item list-item-sm text-primary text-semibold"> 
+                            年龄： {$userself.profile.birthday}
+                        </li>
+                        <li class="list-group-item list-item-sm text-primary text-semibold"> 
+                            所在中心： {$userself.profile.centers.name}
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+            <div class="fluid">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-control pull-left">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#demo-tabs-box-1" data-toggle="tab">基本信息</a></li>
+                                <li><a href="#demo-tabs-box-2" data-toggle="tab">修改密码</a></li>
+                            </ul>
+                        </div>
+                        <h3 class="panel-title invisible">a</h3>
+                    </div>
+                    
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="demo-tabs-box-1">
+                            <form action="{:url('admin/user/profileEdit')}" method="post" class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">昵称</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" name="nickname" placeholder="" value="{$userself.profile.nickname}">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">姓名</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" name="fullname" placeholder="" value="{$userself.profile.fullname}">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">出生年月日</label>
+                                            <div class="col-lg-7 input-group date">
+                                                <input type="text" class="form-control" id="birthday" name="birthday" placeholder="" value="{$userself.profile.birthday}">
+                                                <span class="input-group-addon"><i class="demo-pli-calendar-4"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">性别</label>
+                                            <div class="col-lg-7">
+                                                <div class="radio">
+                                                    <!-- Inline radio buttons -->
+                                                    <input id="form-sex1" class="magic-radio" type="radio" name="sex" value="1" {eq name="userself.profile.sex" value="男"}checked{/eq}>
+                                                    <label for="form-sex1">男</label>
+                        
+                                                    <input id="form-sex2" class="magic-radio" type="radio" name="sex" value="2" {eq name="userself.profile.sex" value="女"}checked{/eq}>
+                                                    <label for="form-sex2">女</label>
+
+                                                    <input id="form-sex0" class="magic-radio" type="radio" name="sex" value="0" {eq name="userself.profile.sex" value="未知"}checked{/eq}>
+                                                    <label for="form-sex0">未知</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div class="form-group">
+                                            {:widget('City/index',['pid'=>$userself['profile']['pos_province'],'cid'=>$userself['profile']['pos_city'],'did'=>$userself['profile']['pos_district']])}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">详细地址</label>
+                                            <div class="col-lg-7">
+                                                <input type="text" class="form-control" name="address" placeholder="" value="{$userself.profile.address}">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">所在中心</label>
+                                            <div class="col-lg-7">
+                                                {:widget('center/index',['centers_id'=>$userself['profile']['centers']['id']])}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">注册时间</label>
+                                            <div class="col-lg-7">
+                                                <p class="form-control-static">{$userself.reg_time}</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">注册IP</label>
+                                            <div class="col-lg-7">
+                                                <p class="form-control-static">{$userself.reg_ip}</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">登录时间</label>
+                                            <div class="col-lg-7">
+                                                <p class="form-control-static">{$userself.last_login_time}</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">登录IP</label>
+                                            <div class="col-lg-7">
+                                                <p class="form-control-static">{$userself.last_login_ip}</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-sm-7 col-sm-offset-1">
+                                            <button class="btn btn-mint" type="submit">更新</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                            <div class="tab-pane fade" id="demo-tabs-box-2">
+                                <form class="form-horizontal" action="{:url('admin/user/repassword')}" method="post">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">旧密码</label>
+                                            <div class="col-lg-7">
+                                                <input type="password" class="form-control" name="oldpassword" placeholder="" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">新密码</label>
+                                            <div class="col-lg-7">
+                                                <input type="password" class="form-control" name="password" placeholder="" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">再次输入</label>
+                                            <div class="col-lg-7">
+                                                <input type="password" class="form-control" name="repassword" placeholder="" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-sm-7 col-sm-offset-1">
+
+                                            <button class="btn btn-mint" type="submit">更新</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

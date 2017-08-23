@@ -1,0 +1,81 @@
+<form class="form-horizontal" action="{:url('admin/report/updateReportE',['id'=>$report['id']])}" method="post" id="report-e-form">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center"></th>
+                            <th>经常-always</th>
+                            <th>偶有-sometimes</th>
+                            <th>无-never</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="sociallist" id="vo" offset="0" length='8'}
+                        {php}$val=2;{/php}
+                        <tr>
+                            <td class="text-left">{$vo.cn_name}<br>{$vo.en_name}</td>
+                            {for start="1" end="4"}
+                            <td><input id="sradio{$vo.id}-{$i}" class="magic-radio" type="radio" name="radio[{$vo.id}]" value="{$val--}" {present name="report['report_e']['radio'][$vo['id']]"}{eq name="report['report_e']['radio'][$vo['id']]" value="$val+1"}checked{/eq}{/present}>
+                            <label for="sradio{$vo.id}-{$i}"></label></td>
+                            {/for}
+                            
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center"></th>
+                            <th>经常-always</th>
+                            <th>偶有-sometimes</th>
+                            <th>无-never</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="sociallist" id="vo" offset="8" length='8'}
+                        {php}$val=2;{/php}
+                        <tr>
+                            <td class="text-left">{$vo.cn_name}<br>{$vo.en_name}</td>
+                            {for start="1" end="4"}
+                            <td><input id="sradio{$vo.id}-{$i}" class="magic-radio" type="radio" name="radio[{$vo.id}]" value="{$val--}" {present name="report['report_e']['radio'][$vo['id']]"}{eq name="report['report_e']['radio'][$vo['id']]" value="$val+1"}checked{/eq}{/present}>
+                                <label for="sradio{$vo.id}-{$i}"></label></td>
+                            {/for}
+                            
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p class="bord-btm pad-ver text-main text-bold">评估总结</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                
+                <div class="col-lg-12">
+                    <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content">{$report.report_e.content}</textarea>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-mint" type="submit">保存</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    
+</script>

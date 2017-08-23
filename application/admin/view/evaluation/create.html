@@ -1,0 +1,270 @@
+<div class="modal fade" id="report-modal" role="dialog" tabindex="-1" aria-labelledby="report-modal" aria-hidden="true">
+    <div class="modal-dialog" style="width: 1200px;">
+        <div class="modal-content">
+
+            <!--Modal header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title">新增评估报告</h4>
+            </div>
+
+            <!--Modal body-->
+            <form class="form-horizontal" action="{:url('admin/evaluation/save')}" method="post" id="evaluation-form">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">学员姓名</label>
+                            <div class="col-lg-7">
+                                <input type="hidden" name="stu_id" value="{$info.id}">
+                                <input type="text" class="form-control" placeholder="" value="{$info.name}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">性别</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" placeholder="" value="{$info.sex}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">年龄</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" placeholder="" value="{$info.birthday|birthday}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">临床诊断</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" placeholder="" value="{$info.diagnosis_text}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">评估师姓名</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" placeholder="" name="e_name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">治疗师姓名</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" placeholder="" name="t_name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">评估时间</label>
+                            <div class="col-lg-7">
+                                <input type="text" id="assess-date" class="form-control" placeholder="" name="assess_time">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">康复次数</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" placeholder="" name="therapy_times">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">评估地址</label>
+                            <div class="col-lg-8">
+                                <textarea class="form-control" name="assess_address"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>阶段/项目</th>
+                            <th>口肌发音</th>
+                            <th>理解认知&nbsp;&nbsp;逻辑表达</th>
+                            <th>专注力、社交及综合训练</th>
+                            <th>其它</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>评估情况</td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[oral_assessment]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[cognitive_assessment]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[concentration_assessment]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[other_assessment]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>现阶段</td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[oral_present]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[cognitive_present]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[concentration_present]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[other_present]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>下阶段</td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[oral_next]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[cognitive_next]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[concentration_next]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-lg-11">
+                                        <textarea class="form-control" style="resize: none;" rows="5" name="content[other_next]"></textarea>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                康复效果
+                            </td>
+                            <td colspan="4">
+                                <div class="radio">
+                                    <!-- Inline radio buttons -->
+                                    <input id="therapy-effect-1" class="magic-radio" type="radio" name="content[therapy_effect]" value="0">
+                                    <label for="therapy-effect-1">差</label>
+                                    <input id="therapy-effect-2" class="magic-radio" type="radio" name="content[therapy_effect]" value="1">
+                                    <label for="therapy-effect-2" >一般</label>
+                                    <input id="therapy-effect-3" class="magic-radio" type="radio" name="content[therapy_effect]" value="2">
+                                    <label for="therapy-effect-3" >好</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                家庭康复情况
+                            </td>
+                            <td colspan="4">
+                                <div class="radio">
+                                    <!-- Inline radio buttons -->
+                                    <input id="home-therapy-1" class="magic-radio" type="radio" name="content[home_therapy]" value="0">
+                                    <label for="home-therapy-1">差</label>
+                                    <input id="home-therapy-2" class="magic-radio" type="radio" name="content[home_therapy]" value="1">
+                                    <label for="home-therapy-2" >一般</label>
+                                    <input id="home-therapy-3" class="magic-radio" type="radio" name="content[home_therapy]" value="2">
+                                    <label for="home-therapy-3" >好</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                家庭意见反馈
+                            </td>
+                            <td colspan="4">
+                                <div class="radio">
+                                    <!-- Inline radio buttons -->
+                                    <input id="feedback-1" class="magic-radio" type="radio" name="content[feedback]" value="0">
+                                    <label for="feedback-1">差</label>
+                                    <input id="feedback-2" class="magic-radio" type="radio" name="content[feedback]" value="1">
+                                    <label for="feedback-2" >一般</label>
+                                    <input id="feedback-3" class="magic-radio" type="radio" name="content[feedback]" value="2">
+                                    <label for="feedback-3" >好</label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-semibold text-main pad-all mar-no">评估小结-NOTE</p>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td colspan="12">
+                                <textarea name="note" class="form-control" rows="6"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!--Modal footer-->
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+                <button class="btn btn-primary" type="submit">保存</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

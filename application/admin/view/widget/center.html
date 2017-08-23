@@ -1,0 +1,10 @@
+<select data-placeholder="选择所在校区" id="school-chosen-select" tabindex="1" name="centers" class="form-control">   <option value=""></option>
+    {volist name="centers_list" id="vo"}
+        <option value="{$vo.id}" {eq name="centers_id" value="$vo.id"}selected{/eq} >{$vo.name}</option>
+    {/volist}
+</select>
+<script type="text/javascript">
+
+    $('#school-chosen-select').chosen({width:'100%',allow_single_deselect:true,no_results_text: "没有找到结果！"});
+
+</script>

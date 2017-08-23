@@ -1,0 +1,62 @@
+<form class="form-horizontal" action="{:url('admin/report/updateBefore',['id'=>$report['id']])}" method="post" id="before-info-form">
+    <p class="bord-btm pad-ver text-main text-bold">评估时孩子状况-child's performance during the assessment</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_a">{$report.before_info.content_a|default=""}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <p class="bord-btm pad-ver text-main text-bold">特别喜好（玩具或食物）-Favorite toys and food</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_b">{$report.before_info.content_b|default=""}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <p class="bord-btm pad-ver text-main text-bold">家长最关心的问题-What are parents' main concerns?</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_c">{$report.before_info.content_c|default=""}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <p class="bord-btm pad-ver text-main text-bold">特别注意事项-Notes</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_d">{$report.before_info.content_d|default=""}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <p class="bord-btm pad-ver text-main text-bold">第一阶段(1st stage)：</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_e">{$report.before_info.content_e|default=""}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <p class="bord-btm pad-ver text-main text-bold">第二阶段(2nd stage)：</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_f">{$report.before_info.content_f|default=""}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-mint" type="submit">保存</button>
+            </div>
+        </div>
+    </div>
+</form>

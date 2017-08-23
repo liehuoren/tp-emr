@@ -1,0 +1,6 @@
+<select id="diagnosis-chosen-select" data-placeholder="请选择" tabindex="1" multiple name="diagnosis[]" aria-hidden="true" class="form-control">  
+    <option></option>
+    {volist name="diagnosis" id="vo"}
+        <option value="{$vo.id}" {in name="vo.id" value="$dia_id"}selected{/in}>{$vo.cn_name}（{$vo.en_name}）</option>
+    {/volist}
+</select>

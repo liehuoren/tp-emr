@@ -1,0 +1,184 @@
+{extend name="Public/base" /}
+{block name="css"}
+<!--Chosen [ OPTIONAL ]-->
+<link href="__PLUGINS__/chosen/chosen.min.css" rel="stylesheet">
+<link href="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
+<!--Bootstrap Table [ OPTIONAL ]-->
+<link href="__PLUGINS__/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+<!--X-editable [ OPTIONAL ]-->
+<link href="__PLUGINS__/x-editable/css/bootstrap-editable.css" rel="stylesheet">
+{/block}
+{block name="js"}
+<!--Chosen [ OPTIONAL ]-->
+<script src="__PLUGINS__/chosen/chosen.jquery.min.js"></script>
+<script src="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.js"></script>
+<script src="__PLUGINS__/mask/jquery.mask.min.js"></script>
+
+<!--X-editable [ OPTIONAL ]-->
+<script src="__PLUGINS__/x-editable/js/bootstrap-editable.min.js"></script>
+<script src="__PLUGINS__/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="__PLUGINS__/bootstrap-table/extensions/editable/bootstrap-table-editable.js"></script>
+<script src="__PLUGINS__/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="__JS__/training/index.js"></script>
+{/block}
+{block name="content"}
+<div id="content-container">
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">训练记录</h1>
+    </div>
+
+    <!--Breadcrumb-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+        <li><a href="{:url('admin/index/index')}">主页</a></li>
+        <li><a href="{:url('admin/member/read',['id'=>$info['id']])}">个人信息</a></li>
+        <li class="active">训练记录</li>
+    </ol>
+    <div id="page-content">
+        <div class="fixed-fluid">
+            <div class="fixed-sm-200 fixed-lg-250 pull-sm-left">
+                <div class="panel">
+                    <div class="text-center pad-all bord-btm">
+                        <div class="pad-ver">
+                            <img src="{$info.avatar}" class="img-lg img-border img-circle" alt="Profile Picture">
+                        </div>
+                        <h4 class="text-lg text-overflow mar-no">{$info.name}</h4>
+                        <p class="text-sm text-muted">{$info.uuid}</p>
+                        
+                    </div>
+                    <p class="text-semibold text-main pad-all mar-no">基本信息</p>
+                    <div class="list-group bg-trans pad-btm bord-btm">
+                        <a href="#" class="list-group-item ">
+                            <span class="text-main">性别：</span>{$info.sex}
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="text-main">出生日期：</span>{$info.birthday}
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="text-main">年龄：</span>{$info.birthday|birthday}
+                        </a>
+                    </div>
+                    <p class="text-semibold text-main pad-all mar-no">其他信息</p>
+                    <div class="list-group bg-trans pad-btm bord-btm">
+                        <a href="{:url('admin/member/read',['id'=>$info['id']])}" class="list-group-item">
+                            <i class="demo-pli-file icon-lg icon-fw"></i>
+                            个人信息
+                        </a>
+                        <a href="{:url('admin/report/index',['id'=>$info['id']])}" class="list-group-item ">
+                            <i class="demo-pli-file icon-lg icon-fw"></i>
+                            评估报告
+                        </a>
+                        
+                        <a href="#" class="list-group-item">
+                            <i class="demo-pli-file icon-lg icon-fw"></i>
+                            阶段评估
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="fluid">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-control pull-left">
+                            <ul class="nav nav-tabs" id="myTab">
+                                <li class="active"><a href="#tabs-1" data-toggle="tab">训练记录表-A</a></li>
+                                <li><a href="#tabs-2" data-toggle="tab">训练基表表-B</a></li>
+                                <li><a href="#tabs-3" data-toggle="tab">训练记录表-C</a></li>
+                                
+                            </ul>
+                        </div>
+                        <h3 class="panel-title invisible">a</h3>
+                    </div>
+                    
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="tabs-1">
+                                <button id="add-row" class="btn btn-info" data-target="#report-a-modal" data-toggle="modal"><i class="demo-pli-plus"></i> 增加</button>
+                                <button id="delete-row" class="btn btn-danger" disabled data-url="{:url('admin/training/delete')}"><i class="demo-pli-cross"></i> 删除</button>
+                                <button id="status-1-row" class="btn btn-success" disabled data-url="{:url('admin/training/setStatus')}"> 通过审核</button>
+                                <button id="status-0-row" class="btn btn-warning" disabled data-url="{:url('admin/training/setStatus')}">未通过审核</button>
+                                <table id="train-a" class="demo-add-niftycheck"
+                                       data-url="{:url('admin/training/list',['type'=>1,'id'=>$info['id']])}"
+                                       data-toolbar="#delete-row,#add-row,#status-1-row,#status-0-row"
+                                       data-search="true"
+                                       data-show-refresh="true"
+                                       data-show-toggle="true"
+                                       data-show-columns="true"
+                                       data-sort-name="id"
+                                       data-page-list="[5, 10, 20]"
+                                       data-page-size="20"
+                                       data-pagination="true" data-show-pagination-switch="true">
+                                    
+                                </table>
+                                {include file="training/training-a" /}
+                            </div>
+                            <div class="tab-pane fade" id="tabs-2">
+                                <button id="add-row-b" class="btn btn-info" data-target="#report-b-modal" data-toggle="modal"><i class="demo-pli-plus"></i> 增加</button>
+                                <button id="delete-row-b" class="btn btn-danger" disabled data-url="{:url('admin/training/delete')}"><i class="demo-pli-cross"></i> 删除</button>
+                                <button id="status-1-row-b" class="btn btn-success" disabled data-url="{:url('admin/training/setStatus')}"> 通过审核</button>
+                                <button id="status-0-row-b" class="btn btn-warning" disabled data-url="{:url('admin/training/setStatus')}">未通过审核</button>
+                                <table id="train-b" class="demo-add-niftycheck"
+                                       data-url="{:url('admin/training/list',['type'=>2,'id'=>$info['id']])}"
+                                       data-toolbar="#delete-row-b,#add-row-b,#status-1-row-b,#status-0-row-b"
+                                       data-search="true"
+                                       data-show-refresh="true"
+                                       data-show-toggle="true"
+                                       data-show-columns="true"
+                                       data-sort-name="id"
+                                       data-page-list="[5, 10, 20]"
+                                       data-page-size="20"
+                                       data-pagination="true" data-show-pagination-switch="true">
+                                    
+                                </table>
+                                {include file="training/training-b" /}
+                            </div>
+                            <div class="tab-pane fade" id="tabs-3">
+                                <button id="add-row-c" class="btn btn-info" data-target="#report-c-modal" data-toggle="modal"><i class="demo-pli-plus"></i> 增加</button>
+                                <button id="delete-row-c" class="btn btn-danger" disabled data-url="{:url('admin/training/delete')}"><i class="demo-pli-cross"></i> 删除</button>
+                                <button id="status-1-row-c" class="btn btn-success" disabled data-url="{:url('admin/training/setStatus')}"> 通过审核</button>
+                                <button id="status-0-row-c" class="btn btn-warning" disabled data-url="{:url('admin/training/setStatus')}">未通过审核</button>
+                                <table id="train-c" class="demo-add-niftycheck"
+                                       data-url="{:url('admin/training/list',['type'=>3,'id'=>$info['id']])}"
+                                       data-toolbar="#delete-row-c,#add-row-c,#status-1-row-c,#status-0-row-c"
+                                       data-search="true"
+                                       data-show-refresh="true"
+                                       data-show-toggle="true"
+                                       data-show-columns="true"
+                                       data-sort-name="id"
+                                       data-page-list="[5, 10, 20]"
+                                       data-page-size="20"
+                                       data-pagination="true" data-show-pagination-switch="true">
+                                    
+                                </table>
+                                {include file="training/training-c" /}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+{/block}
+{block name="script"}
+<script type="text/javascript">
+$(function(){
+    // Javascript to enable link to tab
+    var url = document.location.toString();
+    if (url.match('#')) {
+        $('#myTab a[href="#'+url.split('#')[1]+'"]').tab('show') ;
+    }
+    // Change hash for page-reload
+    $('#myTab a').on('shown.bs.tab', function (e) {
+        window.location.hash = e.target.hash;
+    }); 
+    $('#myTab a').click(function (e) {
+      $(this).tab('show');
+    });
+})
+    
+</script>
+{/block}
