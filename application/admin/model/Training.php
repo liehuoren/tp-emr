@@ -33,6 +33,11 @@ class Training extends Model
         return is_login();
     }
 
+    protected function getNameAttr($value,$data)
+    {
+        return model('Member')->where('id',$data['stu_id'])->cache(true)->value('name');
+    }
+
     protected function getUpdateNameAttr($value,$data)
     {
         return model('User')->where('uid',$data['update_uid'])->cache(true)->value('fullname');

@@ -26,6 +26,8 @@ class Report extends Model
         'report_e' => 'json',
         'before_info' => 'json',
         'training_plan' => 'json',
+        'summary' => 'json',
+        'course' => 'json',
         'assess_time' => 'timestamp:Y-m-d H:i'
     ];
 
@@ -52,6 +54,11 @@ class Report extends Model
     protected function setProblemAttr($value)
     {
         return implode(',',$value);
+    }
+
+    protected function getNameAttr($value,$data)
+    {
+        return model('Member')->where('id',$data['stu_id'])->cache(true)->value('name');
     }
 
     protected function getUpdateNameAttr($value,$data)

@@ -1,0 +1,96 @@
+<form class="form-horizontal" action="{:url('admin/report/updateSummary',['id'=>$report['id']])}" method="post" id="report-summary-form">
+    <table class="table table-bordered">
+        <tr>
+            <td class="text-center media-middle">项目</td>
+            <td colspan="6" class="text-center">评估情况</td>
+        </tr>
+        <tr>
+            <td rowspan="8" class="text-center" style="vertical-align:middle;">言语能力</td>
+            <td rowspan="2" class="text-center" style="vertical-align:middle;">项目</td>
+            <td colspan="6" class="text-center">程度</td>
+        </tr>
+        <tr class="text-center">
+            <td>正常</td>
+            <td>轻度</td>
+            <td>中度</td>
+            <td>严重</td>
+            <td>重度</td>
+        </tr>
+        <tr>
+            <td>感知觉</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="sensory-{$i}" class="magic-radio" type="radio" name="sensory" value="{$i}" {present name="report.summary.sensory"}{eq name="report.summary.sensory" value="$i"}checked{/eq}{/present}><label for="sensory-{$i}"></label></td>
+            {/for}
+        </tr>
+        <tr>
+            <td>口肌</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="oral-motor-{$i}" class="magic-radio" type="radio" name="oral_motor" value="{$i}" {present name="report.summary.oral_motor"}{eq name="report.summary.oral_motor" value="$i"}checked{/eq}{/present}><label for="oral-motor-{$i}"></label></td>
+            {/for}
+        </tr>
+        <tr>
+            <td>行为</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="behavior-{$i}" class="magic-radio" type="radio" name="behavior" value="{$i}" {present name="report.summary.behavior"}{eq name="report.summary.behavior" value="$i"}checked{/eq}{/present}><label for="behavior-{$i}"></label></td>
+            {/for}
+        </tr>
+        <tr>
+            <td>接受性语言</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="receptive-{$i}" class="magic-radio" type="radio" name="receptive" value="{$i}" {present name="report.summary.receptive"}{eq name="report.summary.receptive" value="$i"}checked{/eq}{/present}><label for="receptive-{$i}"></label></td>
+            {/for}
+        </tr>
+        <tr>
+            <td>表达</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="expressive-{$i}" class="magic-radio" type="radio" name="expressive" value="{$i}" {present name="report.summary.expressive"}{eq name="report.summary.expressive" value="$i"}checked{/eq}{/present}><label for="expressive-{$i}"></label></td>
+            {/for}
+        </tr>
+        <tr>
+            <td>运用/社交</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="social-{$i}" class="magic-radio" type="radio" name="social" value="{$i}" {present name="report.summary.social"}{eq name="report.summary.social" value="$i"}checked{/eq}{/present}><label for="social-{$i}"></label></td>
+            {/for}
+        </tr>
+        <tr>
+            <td rowspan="5" class="text-center" style="vertical-align:middle;">其他能力</td>
+            <td>视听反应能力</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="visual-{$i}" class="magic-radio" type="radio" name="visual" value="{$i}" {present name="report.summary.visual"}{eq name="report.summary.visual" value="$i"}checked{/eq}{/present}><label for="visual-{$i}"></label></td>
+            {/for}
+        </tr>
+        <tr>
+            <td>听觉反应能力</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="auditory-{$i}" class="magic-radio" type="radio" name="auditory" value="{$i}" {present name="report.summary.auditory"}{eq name="report.summary.auditory" value="$i"}checked{/eq}{/present}><label for="auditory-{$i}"></label></td>
+            {/for}
+        </tr>
+        <tr>
+            <td>大肌肉能力</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="gross-motor-{$i}" class="magic-radio" type="radio" name="gross_motor" value="{$i}" {present name="report.summary.gross_motor"}{eq name="report.summary.gross_motor" value="$i"}checked{/eq}{/present}><label for="gross-motor-{$i}"></label></td>
+            {/for}
+        </tr>
+        <tr>
+            <td>小肌肉能力</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="fine-motor-{$i}" class="magic-radio" type="radio" name="fine_motor" value="{$i}" {present name="report.summary.fine_motor"}{eq name="report.summary.fine_motor" value="$i"}checked{/eq}{/present}><label for="fine-motor-{$i}"></label></td>
+            {/for}
+        </tr>
+        <tr>
+            <td>专注力</td>
+            {for start="0" end="5"}
+            <td class="text-center"><input id="attentiveness-{$i}" class="magic-radio" type="radio" name="attentiveness" value="{$i}" {present name="report.summary.attentiveness"}{eq name="report.summary.attentiveness" value="$i"}checked{/eq}{/present}><label for="attentiveness-{$i}"></label></td>
+            {/for}
+        </tr>
+    </table>
+
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-7 col-sm-offset-1">
+                <input type="hidden" name="version" value="1">
+                <button class="btn btn-mint" type="submit">保存</button>
+            </div>
+        </div>
+    </div>
+</form>

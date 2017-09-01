@@ -102,7 +102,7 @@ class Report extends Base
 
         $summary = Db::table('emr_assess_summary')->order('sort asc')->cache(true)->select();
 
-        $expression = Db::table('emr_assess_expression')->cache(true)->select();
+        $expression = Db::table('emr_assess_expression')->order('sort asc')->cache(false)->select();
         $attr = array('ep01','ep02','ep03','ep');
         $ename = '';
         $expressions = array();
@@ -159,7 +159,7 @@ class Report extends Base
         if($request->isPost()){
             $data = $request->param();
             $report = Reports::get($id);
-            $res = $report->save($data);
+            $res = $report->allowField(true)->save($data);
             if($res){
                 return true;
             }else{
@@ -171,15 +171,10 @@ class Report extends Base
 
     public function updatePlan(Request $request,$id)
     {
-        if($request->isPost()){
+        if($request->isAjax()){
             $data = $request->param();
             $report = Reports::get($id);
-            $plan['training_plan'] = [
-                'content_a' => $data['content_a'],
-                'content_b' => $data['content_b'],
-                'content_c' => $data['content_c'],
-                'content_d' => $data['content_d'],
-            ];
+            $plan['training_plan'] = $data;
             $res = $report->save($plan);
             if($res){
                 return true;
@@ -195,14 +190,7 @@ class Report extends Base
         if($request->isPost()){
             $data = $request->param();
             $report = Reports::get($id);
-            $plan['before_info'] = [
-                'content_a' => $data['content_a'],
-                'content_b' => $data['content_b'],
-                'content_c' => $data['content_c'],
-                'content_d' => $data['content_d'],
-                'content_e' => $data['content_e'],
-                'content_f' => $data['content_f'],
-            ];
+            $plan['before_info'] = $data;
             $res = $report->save($plan);
             if($res){
                 return true;
@@ -290,10 +278,12 @@ class Report extends Base
                     ],
                     'lips' => [
                         'radios' => isset($data['lips_radio'])?$data['lips_radio']:'',
-                        'checked' => isset($data['lips'])?implode(',',$data['lips']):'',
                         'closure' => $data['lips_closure'],
                         'button_pull' => $data['lips_button_pull'],
                         'retraction' => $data['lips_retraction'],
+                        'closures' => $data['lips']['closure'],
+                        'stretch' => $data['lips']['stretch'],
+                        'round' => $data['lips']['round']
                     ],
                     'tongue_flexibility' => [
                         'protrusion' => $data['tongue_protrusion'],
@@ -325,7 +315,8 @@ class Report extends Base
                         'nasality' => $data['sp_nasality']
                     ]
                 ],
-                'content' => $data['content']
+                'content' => $data['content'],
+                'version'=>$data['version']
             ];
             $res = $report->save($datas);
             if($res){
@@ -385,6 +376,34 @@ class Report extends Base
     {
         if($request->isAjax()){
             $data['report_e'] = $request->except('id');
+            $report = Reports::get($id);
+            $res = $report->save($data);
+            if($res){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+
+    public function updateSummary(Request $request,$id)
+    {
+        if($request->isAjax()){
+            $data['summary'] = $request->except('id');
+            $report = Reports::get($id);
+            $res = $report->save($data);
+            if($res){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+
+    public function updateCourse(Request $request,$id)
+    {
+        if($request->isAjax()){
+            $data['course'] = $request->except('id');
             $report = Reports::get($id);
             $res = $report->save($data);
             if($res){

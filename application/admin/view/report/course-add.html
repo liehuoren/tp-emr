@@ -1,0 +1,301 @@
+<div class="modal fade" id="report-course-model" role="dialog" tabindex="-1" aria-labelledby="report-course-model" aria-hidden="true">
+    <div class="modal-dialog" style="width: 1200px;">
+        <div class="modal-content">
+
+            <!--Modal header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title">新增课程安排</h4>
+            </div>
+
+            <!--Modal body-->
+            <form class="form-horizontal" action="{:url('admin/report/updateCourse',['id'=>$report['id']])}" method="post" id="course-form">
+            <div class="modal-body">
+                <p class="bord-btm pad-ver text-main text-bold">课程安排</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr >
+                                    <th rowspan="2" class="text-center">项目</th>
+                                    <th colspan="2" class="text-center">A</th>
+                                    <th colspan="2" class="text-center">B1</th>
+                                    <th class="text-center">B2</th>
+                                    <th class="text-center">B3</th>
+                                    <th class="text-center">B4</th>
+                                    <th class="text-center">B5</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th class="text-center">口肌</th>
+                                    <th class="text-center">发音</th>
+                                    <th class="text-center">认知理解</th>
+                                    <th class="text-center">语言表达</th>
+                                    <th class="text-center">触觉、前庭、本体、大小肌肉</th>
+                                    <th class="text-center">专注力</th>
+                                    <th class="text-center">社交行为</th>
+                                    <th class="text-center">视听觉</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr class="text-center">
+                                    <td >上课形式</td>
+                                    <td colspan="2">
+                                        <div class="checkbox">
+                                            <input id="A-checkbox-1" class="magic-checkbox" type="checkbox" name="a_form_of_training[group]" value="1">
+                                            <label for="A-checkbox-1">小组</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="A-checkbox-2" class="magic-checkbox" type="checkbox" name="a_form_of_training[individual]" value="2">
+                                            <label for="A-checkbox-2">一对一</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="A-checkbox-3" class="magic-checkbox" type="checkbox" name="a_form_of_training[two]" value="3">
+                                            <label for="A-checkbox-3">多对一</label>
+                                        </div>
+                                        <div class="input-group" style="margin:10px auto;">
+                                            <input type="text" class="form-control" name="a_form_of_training_times_week" style="width:50px">
+                                            <span class="input-group-addon">节\周</span>
+                                        </div>
+                                    </td>
+                                    <td colspan="2">
+                                        <div class="checkbox">
+                                            <input id="B1-checkbox-1" class="magic-checkbox" type="checkbox" name="b1_form_of_training[group]" value="1">
+                                            <label for="B1-checkbox-1">小组</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="B1-checkbox-2" class="magic-checkbox" type="checkbox" name="b1_form_of_training[individual]" value="2">
+                                            <label for="B1-checkbox-2">一对一</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="B1-checkbox-3" class="magic-checkbox" type="checkbox" name="b1_form_of_training[two]" value="3">
+                                            <label for="B1-checkbox-3">多对一</label>
+                                        </div>
+                                        <div class="input-group" style="margin:10px auto;">
+                                            <input type="text" class="form-control" name="b1_form_of_training_times_week" style="width:50px">
+                                            <span class="input-group-addon">节\周</span>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="checkbox">
+                                            <input id="b2-checkbox-1" class="magic-checkbox" type="checkbox" name="b2_form_of_training[group]" value="1">
+                                            <label for="b2-checkbox-1">小组</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="B2-checkbox-2" class="magic-checkbox" type="checkbox" name="b2_form_of_training[individual]" value="2">
+                                            <label for="B2-checkbox-2">一对一</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="B2-checkbox-3" class="magic-checkbox" type="checkbox" name="b2_form_of_training[two]" value="3">
+                                            <label for="B2-checkbox-3">多对一</label>
+                                        </div>
+                                        <div class="input-group" style="margin:10px auto;width:120px">
+                                            <input type="text" class="form-control" name="b2_form_of_training_times_week" style="">
+                                            <span class="input-group-addon">节\周</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="checkbox">
+                                            <input id="b3-checkbox-1" class="magic-checkbox" type="checkbox" name="b3_form_of_training[group]" value="1">
+                                            <label for="b3-checkbox-1">小组</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="B3-checkbox-2" class="magic-checkbox" type="checkbox" name="b3_form_of_training[individual]" value="2">
+                                            <label for="B3-checkbox-2">一对一</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="B3-checkbox-3" class="magic-checkbox" type="checkbox" name="b3_form_of_training[two]" value="3">
+                                            <label for="B3-checkbox-3">多对一</label>
+                                        </div>
+                                        <div class="input-group" style="margin:10px auto;width:120px">
+                                            <input type="text" class="form-control" name="b3_form_of_training_times_week" style="">
+                                            <span class="input-group-addon">节\周</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="checkbox">
+                                            <input id="b4-checkbox-1" class="magic-checkbox" type="checkbox" name="b4_form_of_training[group]" value="1">
+                                            <label for="b4-checkbox-1">小组</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="B4-checkbox-2" class="magic-checkbox" type="checkbox" name="b4_form_of_training[individual]" value="2">
+                                            <label for="B4-checkbox-2">一对一</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="B4-checkbox-3" class="magic-checkbox" type="checkbox" name="b4_form_of_training[two]" value="3">
+                                            <label for="B4-checkbox-3">多对一</label>
+                                        </div>
+                                        <div class="input-group" style="margin:10px auto;width:120px">
+                                            <input type="text" class="form-control" name="b4_form_of_training_times_week" style="">
+                                            <span class="input-group-addon">节\周</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="checkbox">
+                                            <input id="b5-checkbox-1" class="magic-checkbox" type="checkbox" name="b5_form_of_training[group]" value="1">
+                                            <label for="b5-checkbox-1">小组</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="B5-checkbox-2" class="magic-checkbox" type="checkbox" name="b5_form_of_training[individual]" value="2">
+                                            <label for="B5-checkbox-2">一对一</label>
+                                        </div>
+                                        <div class="checkbox">    
+                                            <input id="B5-checkbox-3" class="magic-checkbox" type="checkbox" name="b5_form_of_training[two]" value="3">
+                                            <label for="B5-checkbox-3">多对一</label>
+                                        </div>
+                                        <div class="input-group" style="margin:10px auto;width:120px">
+                                            <input type="text" class="form-control" name="b5_form_of_training_times_week" style="">
+                                            <span class="input-group-addon">节\周</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">时间安排（需3~5个工作日）</td>
+                                    <td colspan="8">
+                                        <div class="input-group" style="">
+                                            <span class="input-group-addon">每周</span>
+                                            <input type="text" class="form-control" name="days_per_week" style="">
+                                            <span class="input-group-addon">天</span>
+
+                                            <span class="input-group-addon" >每天</span>
+                                            <input type="text" class="form-control" name="classes_per_day" style="">
+                                            <span class="input-group-addon">节</span>
+                                        </div>
+                                        <p class="pad-ver">预计上课时间：</p>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">周</span>
+                                                    <input type="text" class="form-control" name="planed_schedule[1][name]" style="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="checkbox">
+                                                    <input id="planed-checkbox-1" class="magic-checkbox" type="checkbox" name="planed_schedule[1][mor]" value="1">
+                                                    <label for="planed-checkbox-1">上午</label>
+                                                    <input id="planed-checkbox-2" class="magic-checkbox" type="checkbox" name="planed_schedule[1][afternoon]" value="1">
+                                                    <label for="planed-checkbox-2">下午</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">周</span>
+                                                    <input type="text" class="form-control" name="planed_schedule[2][name]" style="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="checkbox">
+                                                    <input id="planed-checkbox-3" class="magic-checkbox" type="checkbox" name="planed_schedule[2][mor]" value="1">
+                                                    <label for="planed-checkbox-3">上午</label>
+                                                    <input id="planed-checkbox-4" class="magic-checkbox" type="checkbox" name="planed_schedule[2][afternoon]" value="1">
+                                                    <label for="planed-checkbox-4">下午</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">周</span>
+                                                    <input type="text" class="form-control" name="planed_schedule[3][name]" style="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="checkbox">
+                                                    <input id="planed-checkbox-5" class="magic-checkbox" type="checkbox" name="planed_schedule[3][mor]" value="1">
+                                                    <label for="planed-checkbox-5">上午</label>
+                                                    <input id="planed-checkbox-6" class="magic-checkbox" type="checkbox" name="planed_schedule[3][afternoon]" value="1">
+                                                    <label for="planed-checkbox-6">下午</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">周</span>
+                                                    <input type="text" class="form-control" name="planed_schedule[4][name]" style="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="checkbox">
+                                                    <input id="planed-checkbox-7" class="magic-checkbox" type="checkbox" name="planed_schedule[4][mor]" value="1">
+                                                    <label for="planed-checkbox-7">上午</label>
+                                                    <input id="planed-checkbox-8" class="magic-checkbox" type="checkbox" name="planed_schedule[4][afternoon]" value="1">
+                                                    <label for="planed-checkbox-8">下午</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">本阶段需要</td>
+                                    <td colspan="8">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="current_needs[1][name]" style="">
+                                            <span class="input-group-addon">课</span>
+                                            <input type="text" class="form-control" name="current_needs[1][sessions]" style="">
+                                            <span class="input-group-addon">节</span>
+                                            <input type="text" class="form-control" name="current_needs[1][type]" style="">
+                                            <span class="input-group-addon">形式</span>
+                                            <input type="text" class="form-control" name="current_needs[1][level]" style="">
+                                            <span class="input-group-addon">级别</span>
+                                        </div>
+                                        <br>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="current_needs[2][name]" style="">
+                                            <span class="input-group-addon">课</span>
+                                            <input type="text" class="form-control" name="current_needs[2][sessions]" style="">
+                                            <span class="input-group-addon">节</span>
+                                            <input type="text" class="form-control" name="current_needs[2][type]" style="">
+                                            <span class="input-group-addon">形式</span>
+                                            <input type="text" class="form-control" name="current_needs[2][level]" style="">
+                                            <span class="input-group-addon">级别</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>情况备注</td>
+                                    <td colspan="8">
+                                        <textarea class="form-control" name="notes"></textarea>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>评估后客户反馈</td>
+                                    <td colspan="8">
+                                        <textarea class="form-control" name="feedback"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="9">
+                                        <div class="form-group">
+                                            <label class="col-lg-2 control-label">开始上课日期</label>
+                                            <div class="col-lg-3">
+                                                <input type="text" class="form-control" id="start-date" name="start_date">
+                                            </div>
+
+                                            <label class="col-lg-2 control-label">结课日期</label>
+                                            <div class="col-lg-3">
+                                                <input type="text" class="form-control" id="end-date" name="end_date">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal footer-->
+            <div class="modal-footer">
+                <input type="hidden" name="version" value="1">
+                <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+                <button class="btn btn-primary" type="submit">保存</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    
+</script>

@@ -1,0 +1,277 @@
+<form class="form-horizontal" action="{:url('admin/report/updateCourse',['id'=>$report['id']])}" method="post" id="course-form">
+
+    <p class="bord-btm pad-ver text-main text-bold">课程安排</p>
+    
+            
+                <table class="table table-bordered">
+                    <thead>
+                        <tr >
+                            <th rowspan="2" class="text-center">项目</th>
+                            <th colspan="2" class="text-center">A</th>
+                            <th colspan="2" class="text-center">B1</th>
+                            <th class="text-center">B2</th>
+                            <th class="text-center">B3</th>
+                            <th class="text-center">B4</th>
+                            <th class="text-center">B5</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th class="text-center">口肌</th>
+                            <th class="text-center">发音</th>
+                            <th class="text-center">认知理解</th>
+                            <th class="text-center">语言表达</th>
+                            <th class="text-center">触觉、前庭、本体、大小肌肉</th>
+                            <th class="text-center">专注力</th>
+                            <th class="text-center">社交行为</th>
+                            <th class="text-center">视听觉</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td >上课形式</td>
+                            <td colspan="2">
+                                <div class="checkbox">
+                                    <input id="A-checkbox-1" class="magic-checkbox" type="checkbox" name="a_form_of_training[group]" value="1" {present name="report.course.a_form_of_training.group"}checked{/present}>
+                                    <label for="A-checkbox-1">小组</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="A-checkbox-2" class="magic-checkbox" type="checkbox" name="a_form_of_training[individual]" value="1" {present name="report.course.a_form_of_training.individual"}checked{/present}>
+                                    <label for="A-checkbox-2">一对一</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="A-checkbox-3" class="magic-checkbox" type="checkbox" name="a_form_of_training[two]" value="1" {present name="report.course.a_form_of_training.two"}checked{/present}>
+                                    <label for="A-checkbox-3">多对一</label>
+                                </div>
+                                <div class="input-group" style="margin:10px auto;">
+                                    <input type="text" class="form-control" name="a_form_of_training_times_week" style="width:50px" value="{$report.course.a_form_of_training_times_week}">
+                                    <span class="input-group-addon">节\周</span>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div class="checkbox">
+                                    <input id="B1-checkbox-1" class="magic-checkbox" type="checkbox" name="b1_form_of_training[group]" value="1" {present name="report.course.b1_form_of_training.group"}checked{/present}>
+                                    <label for="B1-checkbox-1">小组</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="B1-checkbox-2" class="magic-checkbox" type="checkbox" name="b1_form_of_training[individual]" value="1" {present name="report.course.b1_form_of_training.individual"}checked{/present}>
+                                    <label for="B1-checkbox-2">一对一</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="B1-checkbox-3" class="magic-checkbox" type="checkbox" name="b1_form_of_training[two]" value="1" {present name="report.course.b1_form_of_training.two"}checked{/present}>
+                                    <label for="B1-checkbox-3">多对一</label>
+                                </div>
+                                <div class="input-group" style="margin:10px auto;">
+                                    <input type="text" class="form-control" name="b1_form_of_training_times_week" style="width:50px" value="{$report.course.b1_form_of_training_times_week}">
+                                    <span class="input-group-addon">节\周</span>
+                                </div>
+                            </td>
+                            <td >
+                                <div class="checkbox">
+                                    <input id="b2-checkbox-1" class="magic-checkbox" type="checkbox" name="b2_form_of_training[group]" value="1" {present name="report.course.b2_form_of_training.group"}checked{/present}>
+                                    <label for="b2-checkbox-1">小组</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="B2-checkbox-2" class="magic-checkbox" type="checkbox" name="b2_form_of_training[individual]" value="1" {present name="report.course.b2_form_of_training.individual"}checked{/present}>
+                                    <label for="B2-checkbox-2">一对一</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="B2-checkbox-3" class="magic-checkbox" type="checkbox" name="b2_form_of_training[two]" value="1" {present name="report.course.b2_form_of_training.two"}checked{/present}>
+                                    <label for="B2-checkbox-3">多对一</label>
+                                </div>
+                                <div class="input-group" style="margin:10px auto;width:120px">
+                                    <input type="text" class="form-control" name="b2_form_of_training_times_week" value="{$report.course.b2_form_of_training_times_week}">
+                                    <span class="input-group-addon">节\周</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <input id="b3-checkbox-1" class="magic-checkbox" type="checkbox" name="b3_form_of_training[group]" value="1" {present name="report.course.b3_form_of_training.group"}checked{/present}>
+                                    <label for="b3-checkbox-1">小组</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="B3-checkbox-2" class="magic-checkbox" type="checkbox" name="b3_form_of_training[individual]" value="1" {present name="report.course.b3_form_of_training.individual"}checked{/present}>
+                                    <label for="B3-checkbox-2">一对一</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="B3-checkbox-3" class="magic-checkbox" type="checkbox" name="b3_form_of_training[two]" value="1" {present name="report.course.b3_form_of_training.two"}checked{/present}>
+                                    <label for="B3-checkbox-3">多对一</label>
+                                </div>
+                                <div class="input-group" style="margin:10px auto;width:120px">
+                                    <input type="text" class="form-control" name="b3_form_of_training_times_week" value="{$report.course.b3_form_of_training_times_week}">
+                                    <span class="input-group-addon">节\周</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <input id="b4-checkbox-1" class="magic-checkbox" type="checkbox" name="b4_form_of_training[group]" value="1" {present name="report.course.b4_form_of_training.group"}checked{/present}>
+                                    <label for="b4-checkbox-1">小组</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="B4-checkbox-2" class="magic-checkbox" type="checkbox" name="b4_form_of_training[individual]" value="1" {present name="report.course.b4_form_of_training.individual"}checked{/present}>
+                                    <label for="B4-checkbox-2">一对一</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="B4-checkbox-3" class="magic-checkbox" type="checkbox" name="b4_form_of_training[two]" value="1" {present name="report.course.b4_form_of_training.two"}checked{/present}>
+                                    <label for="B4-checkbox-3">多对一</label>
+                                </div>
+                                <div class="input-group" style="margin:10px auto;width:120px">
+                                    <input type="text" class="form-control" name="b4_form_of_training_times_week" value="{$report.course.b4_form_of_training_times_week}">
+                                    <span class="input-group-addon">节\周</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="checkbox">
+                                    <input id="b5-checkbox-1" class="magic-checkbox" type="checkbox" name="b5_form_of_training[group]" value="1" {present name="report.course.b5_form_of_training.group"}checked{/present}>
+                                    <label for="b5-checkbox-1">小组</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="B5-checkbox-2" class="magic-checkbox" type="checkbox" name="b5_form_of_training[individual]" value="1" {present name="report.course.b5_form_of_training.individual"}checked{/present}>
+                                    <label for="B5-checkbox-2">一对一</label>
+                                </div>
+                                <div class="checkbox">    
+                                    <input id="B5-checkbox-3" class="magic-checkbox" type="checkbox" name="b5_form_of_training[two]" value="1" {present name="report.course.b5_form_of_training.two"}checked{/present}>
+                                    <label for="B5-checkbox-3">多对一</label>
+                                </div>
+                                <div class="input-group" style="margin:10px auto;width:120px">
+                                    <input type="text" class="form-control" name="b5_form_of_training_times_week" value="{$report.course.b5_form_of_training_times_week}">
+                                    <span class="input-group-addon">节\周</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">时间安排（需3~5个工作日）</td>
+                            <td colspan="8">
+                                <div class="input-group" style="">
+                                    <span class="input-group-addon">每周</span>
+                                    <input type="text" class="form-control" name="days_per_week" value="{$report.course.days_per_week}">
+                                    <span class="input-group-addon">天</span>
+
+                                    <span class="input-group-addon" >每天</span>
+                                    <input type="text" class="form-control" name="classes_per_day" value="{$report.course.classes_per_day}">
+                                    <span class="input-group-addon">节</span>
+                                </div>
+                                <p class="pad-ver">预计上课时间：</p>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">周</span>
+                                            <input type="text" class="form-control" name="planed_schedule[1][name]" value="{$report.course.planed_schedule.1.name}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="checkbox">
+                                            <input id="planed-checkbox-1" class="magic-checkbox" type="checkbox" name="planed_schedule[1][mor]" value="1" {present name="report.course.planed_schedule.1.mor"}checked{/present}>
+                                            <label for="planed-checkbox-1">上午</label>
+                                            <input id="planed-checkbox-2" class="magic-checkbox" type="checkbox" name="planed_schedule[1][afternoon]" value="1" {present name="report.course.planed_schedule.1.afternoon"}checked{/present}>
+                                            <label for="planed-checkbox-2">下午</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">周</span>
+                                            <input type="text" class="form-control" name="planed_schedule[2][name]" value="{$report.course.planed_schedule.2.name}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="checkbox">
+                                            <input id="planed-checkbox-3" class="magic-checkbox" type="checkbox" name="planed_schedule[2][mor]" value="1" {present name="report.course.planed_schedule.2.mor"}checked{/present}>
+                                            <label for="planed-checkbox-3">上午</label>
+                                            <input id="planed-checkbox-4" class="magic-checkbox" type="checkbox" name="planed_schedule[2][afternoon]" value="1" {present name="report.course.planed_schedule.2.afternoon"}checked{/present}>
+                                            <label for="planed-checkbox-4">下午</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">周</span>
+                                            <input type="text" class="form-control" name="planed_schedule[3][name]" value="{$report.course.planed_schedule.3.name}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="checkbox">
+                                            <input id="planed-checkbox-5" class="magic-checkbox" type="checkbox" name="planed_schedule[3][mor]" value="1" {present name="report.course.planed_schedule.3.mor"}checked{/present}>
+                                            <label for="planed-checkbox-5">上午</label>
+                                            <input id="planed-checkbox-6" class="magic-checkbox" type="checkbox" name="planed_schedule[3][afternoon]" value="1" {present name="report.course.planed_schedule.3.afternoon"}checked{/present}>
+                                            <label for="planed-checkbox-6">下午</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">周</span>
+                                            <input type="text" class="form-control" name="planed_schedule[4][name]" value="{$report.course.planed_schedule.4.name}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="checkbox">
+                                            <input id="planed-checkbox-7" class="magic-checkbox" type="checkbox" name="planed_schedule[4][mor]" value="1" {present name="report.course.planed_schedule.4.mor"}checked{/present}>
+                                            <label for="planed-checkbox-7">上午</label>
+                                            <input id="planed-checkbox-8" class="magic-checkbox" type="checkbox" name="planed_schedule[4][afternoon]" value="1" {present name="report.course.planed_schedule.4.afternoon"}checked{/present}>
+                                            <label for="planed-checkbox-8">下午</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">本阶段需要</td>
+                            <td colspan="8">
+                                {volist name="report.course.current_needs" id="vo"}
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="current_needs[{$key}][name]" value="{$vo.name}">
+                                    <span class="input-group-addon">课</span>
+                                    <input type="text" class="form-control" name="current_needs[{$key}][sessions]" value="{$vo.sessions}">
+                                    <span class="input-group-addon">节</span>
+                                    <input type="text" class="form-control" name="current_needs[{$key}][type]" value="{$vo.type}">
+                                    <span class="input-group-addon">形式</span>
+                                    <input type="text" class="form-control" name="current_needs[{$key}][level]" value="{$vo.level}">
+                                    <span class="input-group-addon">级别</span>
+                                </div>
+                                <br>
+                                {/volist}
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>情况备注</td>
+                            <td colspan="8">
+                                <textarea class="form-control" name="notes">{$report.course.notes}</textarea>
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>评估后客户反馈</td>
+                            <td colspan="8">
+                                <textarea class="form-control" name="feedback">{$report.course.feedback}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="9">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">开始上课日期</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" id="start-date" name="start_date" {notempty name="report.course.start_date"}value="{$report['course']['start_date']|date='Y-m-d',###}"{/notempty}>
+                                    </div>
+
+                                    <label class="col-lg-2 control-label">结课日期</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" id="end-date" name="end_date" {notempty name="report.course.end_date"}value="{$report['course']['end_date']|date='Y-m-d',###}"{/notempty}>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+        
+
+            <!--Modal footer-->
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <input type="hidden" name="version" value="1">
+                <button class="btn btn-mint" type="submit">更新</button>
+            </div>
+        </div>
+        
+    </div>
+</form>

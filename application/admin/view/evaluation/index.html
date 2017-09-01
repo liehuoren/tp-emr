@@ -93,7 +93,7 @@
                                             <div class="panel-control">
                                                 <button class="btn btn-default collapsed" data-target="#panel-collapse-{$key}" data-toggle="collapse" aria-expanded="false">更多<i class="demo-pli-arrow-down"></i></button>
                                             </div>
-                                            <h5 class="panel-title">{$vo.assess_time}-{$vo.t_name}</h5>
+                                            <h5 class="panel-title">{$vo.assess_time}-{$vo.e_name}</h5>
                                         </div>
                                         <div id="panel-collapse-{$key}" class="collapse" aria-expanded="false" style="height:0px;">
                                             <div class="panel-body">
@@ -106,6 +106,10 @@
                                                         <tr>
                                                             <td width="20%"><strong>评估师：</strong></td>
                                                             <td>{$vo.e_name}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="20%"><strong>治疗师：</strong></td>
+                                                            <td>{$vo.t_name}</td>
                                                         </tr>
                                                         <tr>
                                                             <td width="20%"><strong>评估时间：</strong></td>

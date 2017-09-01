@@ -1,0 +1,138 @@
+{extend name="Public/base" /}
+{block name="css"}
+<!--Chosen [ OPTIONAL ]-->
+<link href="__PLUGINS__/chosen/chosen.min.css" rel="stylesheet">
+<link href="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
+{/block}
+{block name="js"}
+<!--Chosen [ OPTIONAL ]-->
+<script src="__PLUGINS__/chosen/chosen.jquery.min.js"></script>
+<script src="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.js"></script>
+<script src="__PLUGINS__/mask/jquery.mask.min.js"></script>
+
+{/block}
+{block name="content"}
+<div id="content-container">
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">历史数据新增-第三页</h1>
+    </div>
+
+    <!--Breadcrumb-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+        <li><a href="{:url('admin/index/index')}">主页</a></li>
+        <li class="active">学员管理-新增</li>
+    </ol>
+
+    <div id="page-content">
+        <form action="{:url('admin/assess/saveThree',['id'=>$report_id])}" method="post" class="form-horizontal" id="member-form">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">新增学员信息-评估报告</h3>
+            </div> 
+            <div class="panel-body">
+                <p class="bord-btm pad-ver text-main text-bold">基本资料</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">学员姓名</label>
+                            <div class="col-lg-7">
+                                <input type="hidden" name="stu_id" value="{$info.id}">
+                                <input type="text" class="form-control" placeholder="" value="{$info.name}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">性别</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" placeholder="" value="{$info.sex}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">出生日期</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" id="birth-date" value="{$info.birthday}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="bord-btm pad-ver text-main text-bold">社交行为及专注力</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center"></th>
+                                        <th>经常-always</th>
+                                        <th>偶有-sometimes</th>
+                                        <th>无-never</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {volist name="sociallist" id="vo" offset="0" length='8'}
+                                    {php}$val=2;{/php}
+                                    <tr>
+                                        <td class="text-left">{$vo.cn_name}<br>{$vo.en_name}</td>
+                                        {for start="1" end="4"}
+                                        <td><input id="sradio{$vo.id}-{$i}" class="magic-radio" type="radio" name="report_e[radio][{$vo.id}]" value="{$val--}">
+                                            <label for="sradio{$vo.id}-{$i}"></label></td>
+                                        {/for}
+                                    </tr>
+                                    {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center"></th>
+                                        <th>经常-always</th>
+                                        <th>偶有-sometimes</th>
+                                        <th>无-never</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {volist name="sociallist" id="vo" offset="8" length='8'}
+                                    {php}$val=2;{/php}
+                                    <tr>
+                                        <td class="text-left">{$vo.cn_name}<br>{$vo.en_name}</td>
+                                        {for start="1" end="4"}
+                                        <td><input id="sradio{$vo.id}-{$i}" class="magic-radio" type="radio" name="report_e[radio][{$vo.id}]" value="{$val--}">
+                                            <label for="sradio{$vo.id}-{$i}"></label></td>
+                                        {/for}
+                                    </tr>
+                                    {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-7 col-sm-offset-4">
+                            <input type="hidden" name="report_e[version]" value="1">
+                            <button class="btn btn-primary" type="submit">保存并下一步</button>
+                            <a href="javascript:;" onclick="location.reload()" class="btn btn-info"> 重置</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+{/block}

@@ -1,0 +1,102 @@
+<div class="modal fade" id="report-plan-modal-2" role="dialog" tabindex="-1" aria-labelledby="report-plan-modal-2" aria-hidden="true">
+    <div class="modal-dialog" style="width: 1000px;">
+        <div class="modal-content">
+
+            <!--Modal header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title">新增训练方案</h4>
+            </div>
+
+            <!--Modal body-->
+            <form class="form-horizontal" action="{:url('admin/report/updatePlan',['id'=>$report['id']])}" method="post" id="report-training-plan-2">
+            <div class="modal-body">
+                <p class="bord-btm pad-ver text-main text-bold">训练方案</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">口肌发音</label>
+                            <div class="col-lg-7">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_a"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">视听反应B5</label>
+                            <div class="col-lg-7">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_b5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">运动表达B2</label>
+                            <div class="col-lg-7">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_b2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">理解认知、逻辑表达B1</label>
+                            <div class="col-lg-7">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_b1"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">专注力B3</label>
+                            <div class="col-lg-7">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_b3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">社交行为小组课B4</label>
+                            <div class="col-lg-7">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_b4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="bord-btm pad-ver text-main text-bold">目前需要配合的家庭训练方法</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-lg-10">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_home"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal footer-->
+            <div class="modal-footer">
+                <input type="hidden" name="version" value="2">
+                <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+                <button class="btn btn-primary" type="submit">保存</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    
+</script>

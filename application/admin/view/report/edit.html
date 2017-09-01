@@ -53,6 +53,10 @@
                     </div>
                     <p class="text-semibold text-main pad-all mar-no">其他信息</p>
                     <div class="list-group bg-trans pad-btm bord-btm">
+                        <a href="{:url('admin/member/read',['id'=>$info['id']])}" class="list-group-item ">
+                            <i class="demo-pli-file icon-lg icon-fw"></i>
+                            基础信息
+                        </a>
                         <a href="{:url('admin/report/index',['id'=>$info['id']])}" class="list-group-item ">
                             <i class="demo-pli-file icon-lg icon-fw"></i>
                             评估报告
@@ -90,13 +94,15 @@
                         <div class="panel-control pull-left">
                             <ul class="nav nav-tabs" id="myTab">
                                 <li class="active"><a href="#tab-1" >基本信息</a></li>
-                                <li><a href="#tab-2" >口肌发音评估</a></li>
-                                <li><a href="#tab-3" >语言理解表达能力评估</a></li>
-                                <li><a href="#tab-4" >感统评估</a></li>
-                                <li><a href="#tab-5" >专注力评估</a></li>
-                                <li><a href="#tab-6" >社交行为评估</a></li>
-                                <li><a href="#tab-7" >授课前了解事项</a></li>
-                                <li><a href="#tab-8" >训练方案</a></li>
+                                <li><a href="#tab-2">口肌发音评估</a></li>
+                                <li><a href="#tab-3">语言理解表达能力评估</a></li>
+                                <li><a href="#tab-4">感统、大小肌肉评估</a></li>
+                                <li><a href="#tab-5">专注力评估</a></li>
+                                <li><a href="#tab-6">社交行为评估</a></li>
+                                <li><a href="#tab-7">授课前了解事项</a></li>
+                                <li><a href="#tab-8">训练方案</a></li>
+                                <li><a href="#tab-9">评估情况</a></li>
+                                <li><a href="#tab-10">课程安排</a></li>
                             </ul>
                         </div>
                         <h3 class="panel-title invisible">a</h3>
@@ -187,15 +193,53 @@
                             </div>
                             <div class="tab-pane fade" id="tab-8">
                                 {notempty name="report.training_plan"}
+                                    {eq name="report.training_plan.version" value="1"}
                                     {include file="report/training-plan" /}
+                                    {/eq}
+                                    {eq name="report.training_plan.version" value="2"}
+                                    {include file="report/training-plan-2" /}
+                                    {/eq}
+
                                 {else /}
                                     <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-12 dropup">
                                         <p class="text-center">该学员暂无评估记录</p>
-                                        <button data-target="#report-plan-modal " data-toggle="modal" class="btn btn-block btn-primary">新增</button>
+                                        <button class="btn btn-block btn-primary dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">新增<i class="dropdown-caret"></i></button>
+                                            <ul class="dropdown-menu dropdown-menu-right" style="position: initial;">
+                                                <li class="dropdown-header">模板选择</li>
+                                                <li><a href="#" data-target="#report-plan-modal " data-toggle="modal">模板一</a></li>
+                                                <li><a href="#" data-target="#report-plan-modal-2" data-toggle="modal">模板二</a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                     {include file="report/training-plan-add" /}
+                                    {include file="report/training-plan-add-2" /}
+                                {/notempty}
+                            </div>
+                            <div class="tab-pane fade" id="tab-9">
+                                {notempty name="report.summary"}
+                                    {include file="report/summary" /}
+                                {else /}
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                        <p class="text-center">该学员暂无此评估记录</p>
+                                        <button data-target="#report-summary-model" data-toggle="modal" class="btn btn-block btn-primary">新增</button>
+                                        </div>
+                                    </div>
+                                    {include file="report/summary-add" /}
+                                {/notempty}
+                            </div>
+                            <div class="tab-pane fade" id="tab-10">
+                                {notempty name="report.course"}
+                                    {include file="report/course" /}
+                                {else /}
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                        <p class="text-center">该学员暂无此评估记录</p>
+                                        <button data-target="#report-course-model" data-toggle="modal" class="btn btn-block btn-primary">新增</button>
+                                        </div>
+                                    </div>
+                                    {include file="report/course-add" /}
                                 {/notempty}
                             </div>
                         </div>

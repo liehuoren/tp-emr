@@ -373,8 +373,44 @@ $(document).ready(function(){
                 }
             }, 'json');
     });
+
+    $('#course-form').bootstrapValidator({
+        message: 'This value is not valid',
+        excluded: [':disabled'],
+        feedbackIcons: faIcon,
+        fields: {
+            
+        }
+    }).on('success.form.bv',function(e){
+            e.preventDefault();
+
+            var $form = $(e.target);
+
+            var bv = $form.data('bootstrapValidator');
+
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                if (result== true || result == 'true') {  
+                    // You can reload the current location
+                    layer.msg('更新成功',{icon:6,time:2000},function(){
+                        window.location.reload();
+                    });
+                      
+                    // Or use Javascript to update your page, such as showing the account name  
+                    // $('#welcome').html('Hello ' + result.username);  
+                } else {  
+                    // The account is not found  
+                    // Show the errors  
+                    layer.msg('更新失败',{icon:5,time:2000})
+  
+                    // Enable the submit buttons  
+                    $('#course-form').bootstrapValidator('disableSubmitButtons', false);  
+                }
+            }, 'json');
+    });
     
     $("#assess-date").mask('9999-99-99',{placeholder: "____-__-__"});
+    $('#start-date').mask('9999-99-99',{placeholder: "____-__-__"});
+    $('#end-date').mask('9999-99-99',{placeholder: "____-__-__"});
     $("#diagnosis-chosen-select").chosen({width:"100%"});
     $("#speech-chosen-select").chosen({width:"100%"});
 })

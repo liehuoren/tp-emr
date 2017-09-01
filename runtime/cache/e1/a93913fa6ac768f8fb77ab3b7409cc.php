@@ -1,0 +1,3 @@
+<?php
+//000000000000a:4:{i:0;a:4:{s:2:"id";i:1;s:7:"cn_name";s:9:"无发音";s:7:"en_name";s:8:"NO Sound";s:4:"sort";i:1;}i:1;a:4:{s:2:"id";i:2;s:7:"cn_name";s:15:"单音、叠音";s:7:"en_name";s:21:"Single\Repeated Sound";s:4:"sort";i:2;}i:2;a:4:{s:2:"id";i:3;s:7:"cn_name";s:6:"词组";s:7:"en_name";s:6:"Phrase";s:4:"sort";i:3;}i:3;a:4:{s:2:"id";i:4;s:7:"cn_name";s:6:"句子";s:7:"en_name";s:8:"Sentence";s:4:"sort";i:4;}}
+?>

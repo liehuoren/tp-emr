@@ -7,7 +7,7 @@
                 {volist name="auditory" id="vo"}
                     <div class="form-group" style="margin-left: 15px;"> 
                         <div class="col-sm-1">
-                            <select class="form-control" name="auditory[]"><option></option><option value="1" {eq name="report['report_b']['auditory'][$key]" value="1"}selected{/eq}>√</option><option value="0" {eq name="report['report_b']['auditory'][$key]" value="0"}selected{/eq}>×</option></select>
+                            <select class="form-control" name="auditory[]"><option></option><option value="1" {eq name="report['report_b']['auditory'][$key]" value="1"}selected{/eq}>√</option><option value="2" {eq name="report['report_b']['auditory'][$key]" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report['report_b']['auditory'][$key]" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <label class="col-sm-10 control-label text-left">{$vo.cn_name}&nbsp;{$vo.en_name}</label> 
                     </div>
@@ -21,7 +21,7 @@
                 {volist name="visual" id="vo"}
                     <div class="form-group" style="margin-left: 15px;"> 
                         <div class="col-sm-1">
-                            <select class="form-control" name="visual[]"><option></option><option value="1" {eq name="report['report_b']['visual'][$key]" value="1"}selected{/eq}>√</option><option value="0" {eq name="report['report_b']['visual'][$key]" value="0"}selected{/eq}>×</option></select>
+                            <select class="form-control" name="visual[]"><option></option><option value="1" {eq name="report['report_b']['visual'][$key]" value="1"}selected{/eq}>√</option><option value="2" {eq name="report['report_b']['visual'][$key]" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report['report_b']['visual'][$key]" value="0"}selected{/eq}>×</option></select>
                         </div>
                         {eq name="vo.id" value="4"}
                             <label class="col-sm-2 control-label">{$vo.cn_name}&nbsp;{$vo.en_name}</label>
@@ -52,10 +52,10 @@
                     {present name="vv.0.cn_name"}
                         <tr>
                             {if condition="($k == 1) AND ($kk == 1)"}
-                                <td colspan="1" {eq name='ko' value='1'}rowspan="16"{else /}rowspan="9"{/eq} width="8%">{$vo.en_name}&nbsp;{$vo.cn_name}</td>
+                                <td colspan="1" {eq name='ko' value='1'}rowspan="17"{else /}rowspan="9"{/eq} width="8%">{$vo.en_name}&nbsp;{$vo.cn_name}</td>
                             {/if}
                             {eq name="kk" value="1"}
-                                <td colspan="2" {in name='k' value='5,6'}rowspan="2{else /}rowspan="3"{/in} width="10%">{$v.cn_name}&nbsp;{$v.en_name}</td>
+                                <td colspan="2" {eq name='k' value='6'}rowspan="2{else /}rowspan="3"{/eq} width="10%">{$v.cn_name}&nbsp;{$v.en_name}</td>
                             {/eq}
                             <td colspan="1">{$key|strtoupper}</td>
                             <td colspan="8">
@@ -63,7 +63,7 @@
                                     {volist name="vv" id="vs"}
                                         <label class="col-sm-1 control-label">{$vs.cn_name}</label>
                                         <div class="col-sm-1">
-                                            <select class="form-control" name="{$vs.field_name}"><option></option><option value="1" {eq name="report['report_b'][$vs['field_name']]" value="1"}selected{/eq}>√</option><option value="0" {eq name="report['report_b'][$vs['field_name']]" value="0"}selected{/eq}>×</option></select>
+                                            <select class="form-control" name="{$vs.field_name}"><option></option><option value="1" {present name="report['report_b'][$vs['field_name']]"}{eq name="report['report_b'][$vs['field_name']]" value="1"}selected{/eq}{/present}>√</option><option value="2" {present name="report['report_b'][$vs['field_name']]"}{eq name="report['report_b'][$vs['field_name']]" value="2"}selected{/eq}{/present}>√×</option><option value="0" {present name="report['report_b'][$vs['field_name']]"}{eq name="report['report_b'][$vs['field_name']]" value="0"}selected{/eq}{/present}>×</option></select>
                                         </div>
                                     {/volist}
                                 </div>
@@ -82,7 +82,7 @@
 
             <tr>
                 <td colspan="12">
-                    <textarea name="content" class="form-control" rows="6">{$report.report_b.content}</textarea>
+                    <textarea name="content" class="form-control" rows="6">{present name="report.report_b.content"}{$report.report_b.content}{/present}</textarea>
                 </td>
             </tr>
         </tbody>
@@ -91,6 +91,7 @@
     <div class="panel-footer">
         <div class="row">
             <div class="col-sm-7 col-sm-offset-1">
+                <input type="hidden" name="version" value="1">
                 <button class="btn btn-mint" type="submit">保存</button>
             </div>
         </div>

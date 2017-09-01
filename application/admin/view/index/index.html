@@ -27,10 +27,9 @@
                         <table id="member"  
                         data-url="{:url('admin/index/memberlist')}"
                         data-sort-name="id"
-                        data-page-list="[5, 10, 20]"
-                        data-page-size="20"
+                        data-page-size="10"
                         data-pagination="true" 
-                        data-pagination="true">
+                        data-side-pagination="server">
                         </table>
                     </div>
                 </div>
@@ -41,7 +40,13 @@
                         <h3 class="panel-title">待审核-学员评估报告</h3>
                     </div>
                     <div class="panel-body">
-                        
+                        <table id="report"  
+                        data-url="{:url('admin/index/reportlist')}"
+                        data-sort-name="id"
+                        data-page-size="10"
+                        data-pagination="true" 
+                        data-side-pagination="server">
+                        </table>
                     </div>
                 </div>
             </div>
@@ -54,7 +59,13 @@
                         <h3 class="panel-title">待审核-学员训练记录</h3>
                     </div>
                     <div class="panel-body">
-                        
+                        <table id="training"  
+                        data-url="{:url('admin/index/traininglist')}"
+                        data-sort-name="id"
+                        data-page-size="10"
+                        data-pagination="true" 
+                        data-side-pagination="server">
+                        </table>
                     </div>
                 </div>
             </div>
@@ -64,7 +75,13 @@
                         <h3 class="panel-title">待审核-学员阶段评估报告</h3>
                     </div>
                     <div class="panel-body">
-                        
+                        <table id="evaluation"  
+                        data-url="{:url('admin/index/evaluationlist')}"
+                        data-sort-name="id"
+                        data-page-size="10"
+                        data-pagination="true" 
+                        data-side-pagination="server">
+                        </table>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@ use think\Request;
 use think\Db;
 use app\admin\controller\Base;
 use app\admin\model\Log;
-class Config 
+class Config extends Base
 {
     //获取中国省份信息
     public function getProvince(){

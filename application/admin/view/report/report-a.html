@@ -28,15 +28,15 @@
                     <div class="form-group">
                         <label class="col-sm-1 control-label">侧面</label>
                         <div class="col-sm-2">
-                            <select class="form-control" name="purees_side"><option></option><option value="1" {eq name="report.report_a.om.feeding.purees.side" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.purees.side" value="0"}selected{/eq}>不可以</option></select>
+                            <select class="form-control" name="purees_side"><option></option><option value="1" {eq name="report.report_a.om.feeding.purees.side" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.feeding.purees.side" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.feeding.purees.side" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <label class="col-sm-1 control-label">正面</label>
                         <div class="col-sm-2">
-                            <select class="form-control" name="purees_front"><option></option><option value="1" {eq name="report.report_a.om.feeding.purees.front" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.purees.front" value="0"}selected{/eq}>不可以</option></select>
+                            <select class="form-control" name="purees_front"><option></option><option value="1" {eq name="report.report_a.om.feeding.purees.front" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.feeding.purees.front" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.feeding.purees.front" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <label class="col-sm-1 control-label">啜饮</label>
                         <div class="col-sm-2">
-                            <select class="form-control" name="purees_slurping"><option></option><option value="1" {eq name="report.report_a.om.feeding.purees.slurping" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.purees.slurping" value="0"}selected{/eq}>不可以</option></select>
+                            <select class="form-control" name="purees_slurping"><option></option><option value="1" {eq name="report.report_a.om.feeding.purees.slurping" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.feeding.purees.slurping" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.feeding.purees.slurping" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <div class="checkbox col-sm-3">
                             <input id="purees-checkbox-1" class="magic-checkbox" type="checkbox" name="purees_unable" value="1" {eq name="report.report_a.om.feeding.purees.unable" value="1"}checked{/eq}>
@@ -52,11 +52,11 @@
                     <div class="form-group">
                         <label class="col-sm-1 control-label">左边</label>
                         <div class="col-sm-2">
-                            <select class="form-control" name="slow_feed[left]"><option></option><option value="1" {eq name="report.report_a.om.feeding.slow_feed.left" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.slow_feed.left" value="0"}selected{/eq}>不可以</option></select>
+                            <input type="text" class="form-control" name="slow_feed[left]" value="{$report.report_a.om.feeding.slow_feed.left}">
                         </div>
                         <label class="col-sm-1 control-label">右边</label>
                         <div class="col-sm-2">
-                            <select class="form-control" name="slow_feed[right]"><option></option><option value="1" {eq name="report.report_a.om.feeding.slow_feed.right" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.slow_feed.right" value="0"}selected{/eq}>不可以</option></select>
+                            <input type="text" class="form-control" name="slow_feed[right]" value="{$report.report_a.om.feeding.slow_feed.right}">
                         </div>
                         <div class="checkbox col-sm-3">
                             <input id="slow-feed-checkbox-1" class="magic-checkbox" type="checkbox" name="slow_feed_unable" value="1" {eq name="report.report_a.om.feeding.slow_feed.unable" value="1"}checked{/eq}>
@@ -72,11 +72,11 @@
                     <div class="form-group">
                         <label class="col-sm-1 control-label">奶瓶</label>
                         <div class="col-sm-2">
-                            <select class="form-control" name="milk_bottle"><option></option><option value="1" {eq name="report.report_a.om.feeding.straw_drinking.milk_bottle" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.straw_drinking.milk_bottle" value="0"}selected{/eq}>不可以</option></select>
+                            <select class="form-control" name="milk_bottle"><option></option><option value="1" {eq name="report.report_a.om.feeding.straw_drinking.milk_bottle" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.feeding.straw_drinking.milk_bottle" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.feeding.straw_drinking.milk_bottle" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <label class="col-sm-1 control-label">母乳</label>
                         <div class="col-sm-2">
-                            <select class="form-control" name="breast_feeding"><option></option><option value="1" {eq name="report.report_a.om.feeding.straw_drinking.breast_feeding" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.straw_drinking.breast_feeding" value="0"}selected{/eq}>不可以</option></select>
+                            <select class="form-control" name="breast_feeding"><option></option><option value="1" {eq name="report.report_a.om.feeding.straw_drinking.breast_feeding" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.feeding.straw_drinking.breast_feeding" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.feeding.straw_drinking.breast_feeding" value="0"}selected{/eq}>×</option></select>
                         </div>
                     </div>
                 </td>
@@ -86,7 +86,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">小熊瓶</label>
                         <div class="col-sm-2">
-                            <select class="form-control" name="bear_bottle"><option></option><option value="1" {eq name="report.report_a.om.feeding.straw_drinking.bear_bottle" value="1"}selected{/eq}>可以</option><option value="0" {eq name="report.report_a.om.feeding.straw_drinking.bear_bottle" value="0"}selected{/eq}>不可以</option></select>
+                            <select class="form-control" name="bear_bottle"><option></option><option value="1" {eq name="report.report_a.om.feeding.straw_drinking.bear_bottle" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.feeding.straw_drinking.bear_bottle" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.feeding.straw_drinking.bear_bottle" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <label class="col-sm-1 control-label">吸管</label>
                         <div class="col-sm-2">
@@ -147,7 +147,7 @@
                 <td colspan="2">笛子（Horn）</td>
                 <td colspan="8">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">笛子</label>
+                        <label class="col-sm-2 control-label">笛子（号）</label>
                         <div class="col-sm-2">
                             <input type="text" name="horn_num" class="form-control" value="{$report.report_a.om.airflow.horn.num}">
                         </div>
@@ -276,7 +276,7 @@
             </tr>
             <tr>
                 <td colspan="2" rowspan="4" class="text-center">05 唇（Lips）</td>
-                <td colspan="4">
+                <td colspan="4" >
                     <div class="radio">
                         <input id="lips-radio-1" class="magic-radio" type="radio" name="lips_radio" value="2" {eq name="report.report_a.om.lips.radios" value="2"}checked{/eq}>
                         <label for="lips-radio-1">好</label>
@@ -287,13 +287,19 @@
                     </div>
                 </td>
                 <td colspan="4">
-                    <div class="checkbox">
-                        <input id="lips-checkbox-1" class="magic-checkbox" type="checkbox" name="lips[]"  {in name="1" value="$report.report_a.om.lips.checked"}checked{/in} value="1">
-                        <label for="lips-checkbox-1">合唇</label>
-                        <input id="lips-checkbox-2" class="magic-checkbox" type="checkbox" name="lips[]" {in name="2" value="$report.report_a.om.lips.checked"}checked{/in} value="2">
-                        <label for="lips-checkbox-2">展唇</label>
-                        <input id="lips-checkbox-3" class="magic-checkbox" type="checkbox" name="lips[]" {in name="3" value="$report.report_a.om.lips.checked"}checked{/in} value="3">
-                        <label for="lips-checkbox-3">圆唇</label>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">合唇</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="lips[closure]"><option></option><option value="1" {present name="report.report_a.om.lips.closures"}{eq name="report.report_a.om.lips.closures" value="1"}selected{/eq}{/present}>√</option><option value="2" {present name="report.report_a.om.lips.closures"}{eq name="report.report_a.om.lips.closures" value="2"}selected{/eq}{/present}>√×</option><option value="0" {present name="report.report_a.om.lips.closures"}{eq name="report.report_a.om.lips.closures" value="0"}selected{/eq}{/present}>×</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">展唇</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="lips[stretch]"><option></option><option value="1" {present name="report.report_a.om.lips.stretch"}{eq name="report.report_a.om.lips.stretch" value="1"}selected{/eq}{/present}>√</option><option value="2" {present name="report.report_a.om.lips.stretch"}{eq name="report.report_a.om.lips.stretch" value="2"}selected{/eq}{/present}>√×</option><option value="0" {present name="report.report_a.om.lips.stretch"}{eq name="report.report_a.om.lips.stretch" value="0"}selected{/eq}{/present}>×</option></select>
+                        </div>
+                        <label class="col-sm-1 control-label">圆唇</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="lips[round]"><option></option><option value="1" {present name="report.report_a.om.lips.round"}{eq name="report.report_a.om.lips.round" value="1"}selected{/eq}{/present}>√</option><option value="2" {present name="report.report_a.om.lips.round"}{eq name="report.report_a.om.lips.round" value="2"}selected{/eq}{/present}>√×</option><option value="0" {present name="report.report_a.om.lips.round"}{eq name="report.report_a.om.lips.round" value="0"}selected{/eq}{/present}>×</option></select>
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -332,28 +338,28 @@
                 <td colspan="8" rowspan="2">
                     <div class="form-group">
                         <label class="col-sm-1 control-label">前伸</label>
-                        <div class="col-sm-2">
-                            <select class="form-control" name="tongue_protrusion"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.protrusion" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.protrusion" value="0"}selected{/eq}>×</option></select>
+                        <div class="col-sm-1">
+                            <select class="form-control" name="tongue_protrusion"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.protrusion" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.tongue_flexibility.protrusion" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.protrusion" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <label class="col-sm-1 control-label">回缩</label>
-                        <div class="col-sm-2">
-                            <select class="form-control" name="tongue_retraction"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.retraction" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.retraction" value="0"}selected{/eq}>×</option></select>
+                        <div class="col-sm-1">
+                            <select class="form-control" name="tongue_retraction"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.retraction" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.tongue_flexibility.retraction" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.retraction" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <label class="col-sm-1 control-label">左</label>
-                        <div class="col-sm-2">
-                            <select class="form-control" name="tongue_left"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.left" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.left" value="0"}selected{/eq}>×</option></select>
+                        <div class="col-sm-1">
+                            <select class="form-control" name="tongue_left"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.left" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.tongue_flexibility.left" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.left" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <label class="col-sm-1 control-label">右</label>
-                        <div class="col-sm-2">
-                            <select class="form-control" name="tongue_right"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.right" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.right" value="0"}selected{/eq}>×</option></select>
+                        <div class="col-sm-1">
+                            <select class="form-control" name="tongue_right"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.right" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.tongue_flexibility.right" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.right" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <label class="col-sm-1 control-label">上</label>
-                        <div class="col-sm-2">
-                            <select class="form-control" name="tongue_elevation"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.elevation" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.elevation" value="0"}selected{/eq}>×</option></select>
+                        <div class="col-sm-1">
+                            <select class="form-control" name="tongue_elevation"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.elevation" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.tongue_flexibility.elevation" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.elevation" value="0"}selected{/eq}>×</option></select>
                         </div>
                         <label class="col-sm-1 control-label">下</label>
-                        <div class="col-sm-2">
-                            <select class="form-control" name="tongue_depression"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.depression" value="1"}selected{/eq}>√</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.depression" value="0"}selected{/eq}>×</option></select>
+                        <div class="col-sm-1">
+                            <select class="form-control" name="tongue_depression"><option></option><option value="1" {eq name="report.report_a.om.tongue_flexibility.depression" value="1"}selected{/eq}>√</option><option value="2" {eq name="report.report_a.om.tongue_flexibility.depression" value="2"}selected{/eq}>√×</option><option value="0" {eq name="report.report_a.om.tongue_flexibility.depression" value="0"}selected{/eq}>×</option></select>
                         </div>
 
                     </div>
@@ -363,8 +369,8 @@
             <tr>
                 <td colspan="8">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">前伸/回缩舌尖训练器（月牙形）</label>
-                        <div class="col-sm-3">
+                        <label class="col-sm-2 control-label">前伸/回缩舌尖训练器（月牙形）</label>
+                        <div class="col-sm-4">
                             <input type="text" name="tongue_a" class="form-control" value="{$report.report_a.om.tongue_flexibility.content_a}">
                         </div>
                     </div>
@@ -373,8 +379,8 @@
             <tr>
                 <td colspan="8">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">舌尖两侧转移训练</label>
-                        <div class="col-sm-3">
+                        <label class="col-sm-2 control-label">舌尖两侧转移训练</label>
+                        <div class="col-sm-4">
                             <input type="text" name="tongue_b" class="form-control" value="{$report.report_a.om.tongue_flexibility.content_b}">
                         </div>
                     </div>
@@ -383,8 +389,8 @@
             <tr>
                 <td colspan="8">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">舌尖提升/下压训练</label>
-                        <div class="col-sm-3">
+                        <label class="col-sm-2 control-label">舌尖提升/下压训练</label>
+                        <div class="col-sm-4">
                             <input type="text" name="tongue_c" class="form-control" value="{$report.report_a.om.tongue_flexibility.content_c}">
                         </div>
                     </div>
@@ -658,6 +664,7 @@
     <div class="panel-footer">
         <div class="row">
             <div class="col-sm-7 col-sm-offset-1">
+                <input type="hidden" name="version" value="1">
                 <button class="btn btn-mint" type="submit">保存</button>
             </div>
         </div>

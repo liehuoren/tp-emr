@@ -191,94 +191,46 @@
                                     <tr>
                                         <td>评估情况</td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[oral_assessment]">{$report.content.oral_assessment}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[oral_assessment]">{$report.content.oral_assessment}</textarea>
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[cognitive_assessment]">{$report.content.cognitive_assessment}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[cognitive_assessment]">{$report.content.cognitive_assessment}</textarea>
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[concentration_assessment]">{$report.content.concentration_assessment}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[concentration_assessment]">{$report.content.concentration_assessment}</textarea>
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[other_assessment]">{$report.content.other_assessment}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[other_assessment]">{$report.content.other_assessment}</textarea>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>现阶段</td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[oral_present]">{$report.content.oral_present}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[oral_present]">{$report.content.oral_present}</textarea>
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[cognitive_present]">{$report.content.cognitive_present}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[cognitive_present]">{$report.content.cognitive_present}</textarea>
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[concentration_present]">{$report.content.concentration_present}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[concentration_present]">{$report.content.concentration_present}</textarea>
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[other_present]">{$report.content.other_present}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[other_present]">{$report.content.other_present}</textarea>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>下阶段</td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[oral_next]">{$report.content.oral_next}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[oral_next]">{$report.content.oral_next}</textarea>
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[cognitive_next]">{$report.content.cognitive_next}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[cognitive_next]">{$report.content.cognitive_next}</textarea>
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[concentration_next]">{$report.content.concentration_next}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[concentration_next]">{$report.content.concentration_next}</textarea>
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <div class="col-lg-11">
-                                                    <textarea class="form-control" style="resize: none;" rows="5" name="content[other_next]">{$report.content.other_next}</textarea>
-                                                </div>
-                                            </div>
+                                            <textarea class="form-control" style="resize: none;" rows="6" name="content[other_next]">{$report.content.other_next}</textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -345,6 +297,7 @@
                                 <div class="row">
                                     <div class="col-sm-12 text-center">
                                         <button class="btn btn-mint" type="submit">保存</button>
+                                        <a href="{:url('admin/evaluation/index',['id'=>$info['id']])}" class="btn btn-primary">返回</a>
                                     </div>
                                 </div>
                             </div>

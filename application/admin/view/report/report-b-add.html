@@ -19,7 +19,7 @@
                             {volist name="auditory" id="vo"}
                                 <div class="form-group" style="margin-left: 15px;"> 
                                     <div class="col-sm-1">
-                                        <select class="form-control" name="auditory[]"><option></option><option value="1">√</option><option value="0">×</option></select>
+                                        <select class="form-control" name="auditory[]"><option></option><option value="1">√</option><option value="2">√×</option><option value="0">×</option></select>
                                     </div>
                                     <label class="col-sm-10 control-label text-left">{$vo.cn_name}&nbsp;{$vo.en_name}</label> 
                                 </div>
@@ -33,7 +33,7 @@
                             {volist name="visual" id="vo"}
                                 <div class="form-group" style="margin-left: 15px;"> 
                                     <div class="col-sm-1">
-                                        <select class="form-control" name="visual[]"><option></option><option value="1">√</option><option value="0">×</option></select>
+                                        <select class="form-control" name="visual[]"><option></option><option value="1">√</option><option value="2">√×</option><option value="0">×</option></select>
                                     </div>
                                     {eq name="vo.id" value="4"}
                                         <label class="col-sm-2 control-label">{$vo.cn_name}&nbsp;{$vo.en_name}</label>
@@ -64,10 +64,10 @@
                                 {present name="vv.0.cn_name"}
                                     <tr>
                                         {if condition="($k == 1) AND ($kk == 1)"}
-                                            <td colspan="1" {eq name='ko' value='1'}rowspan="16"{else /}rowspan="9"{/eq} width="8%">{$vo.en_name}&nbsp;{$vo.cn_name}</td>
+                                            <td colspan="1" {eq name='ko' value='1'}rowspan="17"{else /}rowspan="9"{/eq} width="8%">{$vo.en_name}&nbsp;{$vo.cn_name}</td>
                                         {/if}
                                         {eq name="kk" value="1"}
-                                            <td colspan="2" {in name='k' value='5,6'}rowspan="2{else /}rowspan="3"{/in} width="10%">{$v.cn_name}&nbsp;{$v.en_name}</td>
+                                            <td colspan="2" {eq name='k' value='6'}rowspan="2{else /}rowspan="3"{/eq} width="10%">{$v.cn_name}&nbsp;{$v.en_name}</td>
                                         {/eq}
                                         <td colspan="1">{$key|strtoupper}</td>
                                         <td colspan="8">
@@ -75,7 +75,7 @@
                                                 {volist name="vv" id="vs"}
                                                     <label class="col-sm-1 control-label">{$vs.cn_name}</label>
                                                     <div class="col-sm-1">
-                                                        <select class="form-control" name="{$vs.field_name}"><option></option><option value="1">√</option><option value="0">×</option></select>
+                                                        <select class="form-control" name="{$vs.field_name}"><option></option><option value="1">√</option><option value="2">√×</option><option value="0">×</option></select>
                                                     </div>
                                                 {/volist}
                                             </div>
@@ -104,6 +104,7 @@
 
             <!--Modal footer-->
             <div class="modal-footer">
+                <input type="hidden" name="version" value="1">
                 <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
                 <button class="btn btn-primary" type="submit">保存</button>
             </div>

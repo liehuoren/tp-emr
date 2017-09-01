@@ -30,7 +30,7 @@ class Member extends Base
             
         }
         $map['status'] = array('egt',-1);
-        $list = Members::where($map)->paginate();
+        $list = Members::where($map)->paginate(12);
         $list->append(['status_class','diagnosis_text']);
         return view('',['list'=>$list]);
     }
@@ -69,12 +69,12 @@ class Member extends Base
             $data['extends'] = [
                 'base' => [
                     'history' => [
-                        'checked' => $data['history']['checked'],
+                        'checked' => isset($data['history']['checked'])?$data['history']['checked']:array(),
                         'other' => isset($data['history']['other'])?$data['history']['other']:0,
                         'other_text' => $data['history_other'],
                     ],
                     'ability' => [
-                        'checked' => $data['ability'],
+                        'checked' => isset($data['ability'])?$data['ability']:array(),
                         'other_text' => $data['ability_other'],
                     ],
                     'main_concern' => $data['main_concern'],
@@ -188,7 +188,7 @@ class Member extends Base
                         'babbling' => $data['babbling'],
                         'first_word' => $data['first_word'],
                         'phrase' => $data['phrase'],
-                        'is_stop' => $data['is_stop']
+                        'is_stop' => isset($data['is_stop'])?:''
                     ]
                 ]
             ];

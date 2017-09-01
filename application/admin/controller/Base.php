@@ -19,22 +19,22 @@ class Base extends Controller
 
         $rule = strtolower(request()->module().'/'.request()->controller().'/'.request()->action());
 
-
         if(get_role()!=1){
-            $role = Role::get(get_role());
-            $map['id'] = array('in',$role['rules']);
-            $map['status'] = array('eq',1);
-            $auth = Db::table('sys_role_rule')->where($map)->cache(false)->column('name');
-            $authlist = array();
-            foreach ($auth as $k => $v) {
-                $authlist[] = strtolower($v);
-            }
-            if(!in_array($rule,$authlist)){
-                $this->error($rule);
+            if(strtolower(request()->controller())!=='config'){
+                $role = Role::get(get_role());
+                $map['id'] = array('in',$role['rules']);
+                $map['status'] = array('eq',1);
+                $auth = Db::table('sys_role_rule')->where($map)->cache(false)->column('name');
+                $authlist = array();
+                foreach ($auth as $k => $v) {
+                    $authlist[] = strtolower($v);
+                }
+                if(!in_array($rule,$authlist)){
+                    $this->error("无权访问");
+                }
             }
         }
         
-
         $userself = $user->hidden(['password'])->toArray();
         $this->assign('userself',$userself);
     }

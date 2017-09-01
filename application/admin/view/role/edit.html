@@ -94,6 +94,12 @@
                     <div class="tab-pane fade" id="tabs-box-2">
                     <form action="{:url('admin/role/update',['id'=>$info['id']])}" method="post" class="form-horizontal">
                         <div class="row">
+                            <div class="col-sm-2">
+                                <input id="checkbox-all" class="magic-checkbox" type="checkbox">
+                                <label for="checkbox-all">全选</label>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-10">
                                 <div class="checkbox">
                                     {volist name="rules" id="vo" offset="0" length='1'}
@@ -153,6 +159,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            
+                            <div class="col-sm-10">
+                                <div class="checkbox">
+                                    {volist name="rules" id="vo" offset="37" length='14'}
+                                    <input id="checkbox-{$key}" class="magic-checkbox" type="checkbox" name="rules[]" value="{$vo.id}" {in name="vo.id" value="$info.rules"}checked{/in}>
+                                    <label for="checkbox-{$key}">{$vo.title}</label>
+                                    {/volist}
+                                </div>
+                            </div>
+                        </div>
                         <div class="panel-footer">
                             <div class="row">
                                 <div class="col-sm-7 col-sm-offset-2">
@@ -164,9 +181,19 @@
                     </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
+{/block}
+{block name="script"}
+<script type="text/javascript">
+    $("#checkbox-all").change(function(){
+        if($(this).is(":checked")){
+            $(":checkbox").prop("checked",true);
+        }else{
+            $(":checkbox").removeAttr("checked");
+        }
+    });
+</script>
 {/block}

@@ -1,0 +1,84 @@
+<form class="form-horizontal" action="{:url('admin/report/updatePlan',['id'=>$report['id']])}" method="post" id="report-training-plan">
+    <p class="bord-btm pad-ver text-main text-bold">训练方案</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">口肌发音</label>
+                <div class="col-lg-7">
+                    <textarea rows="9" class="form-control" placeholder="" name="content_a">{$report.training_plan.content_a|default=""}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">视听反应B5</label>
+                <div class="col-lg-7">
+                    <textarea rows="9" class="form-control" placeholder="" name="content_b5">{$report.training_plan.content_b5|default=""}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">运动表达B2</label>
+                <div class="col-lg-7">
+                    <textarea rows="9" class="form-control" placeholder="" name="content_b2">{$report.training_plan.content_b2|default=""}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">理解认知、逻辑表达B1</label>
+                <div class="col-lg-7">
+                    <textarea rows="9" class="form-control" placeholder="" name="content_b1">{$report.training_plan.content_b1|default=""}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">专注力B3</label>
+                <div class="col-lg-7">
+                    <textarea rows="9" class="form-control" placeholder="" name="content_b3">{$report.training_plan.content_b3|default=""}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">社交行为小组课B4</label>
+                <div class="col-lg-7">
+                    <textarea rows="9" class="form-control" placeholder="" name="content_b4">{$report.training_plan.content_b4|default=""}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="bord-btm pad-ver text-main text-bold">目前需要配合的家庭训练方法</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="col-lg-10">
+                    <textarea rows="9" class="form-control" placeholder="" name="content_home">{$report.training_plan.content_home|default=""}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <input type="hidden" name="version" value="2">
+                <button class="btn btn-mint" type="submit">更新</button>
+            </div>
+        </div>
+    </div>
+</form>

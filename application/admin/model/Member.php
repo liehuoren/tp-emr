@@ -100,7 +100,10 @@ class Member extends Model
     }
 
     protected function getRegTimeAttr($value)
-    {
+    {   
+        if($value==''){
+            return '0000-00-00';
+        }
         return date('Y-m-d',$value);
     }
 
@@ -191,6 +194,9 @@ class Member extends Model
 
     protected function getDiagnosisTextAttr($value,$data)
     {
+        if($data['diagnosis']==''){
+            return '';
+        }
         $map['id'] = array('in',$data['diagnosis']);
         $list = Db::table('emr_medical_diagnosis')->where($map)->order('sort asc')->column('cn_name');
         return implode(',', $list);
@@ -198,6 +204,9 @@ class Member extends Model
 
     protected function getProblemTextAttr($value,$data)
     {
+        if($data['diagnosis']==''){
+            return '';
+        }
         $map['id'] = array('in',$data['diagnosis']);
         $list = Db::table('emr_speech_problem')->where($map)->order('sort asc')->column('cn_name');
         return implode(',', $list);

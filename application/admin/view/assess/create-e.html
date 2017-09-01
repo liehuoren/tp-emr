@@ -1,0 +1,152 @@
+{extend name="Public/base" /}
+{block name="css"}
+<!--Chosen [ OPTIONAL ]-->
+<link href="__PLUGINS__/chosen/chosen.min.css" rel="stylesheet">
+<link href="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
+{/block}
+{block name="js"}
+<!--Chosen [ OPTIONAL ]-->
+<script src="__PLUGINS__/chosen/chosen.jquery.min.js"></script>
+<script src="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.js"></script>
+<script src="__PLUGINS__/mask/jquery.mask.min.js"></script>
+{/block}
+{block name="content"}
+<div id="content-container">
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">历史数据新增-第六页</h1>
+    </div>
+
+    <!--Breadcrumb-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+        <li><a href="{:url('admin/index/index')}">主页</a></li>
+        <li class="active">学员管理-新增</li>
+    </ol>
+
+    <div id="page-content">
+        <form action="{:url('admin/assess/saveSix',['id'=>$report_id])}" method="post" class="form-horizontal" id="member-form">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">新增学员信息-评估报告</h3>
+            </div> 
+            <div class="panel-body">
+                <p class="bord-btm pad-ver text-main text-bold">基本资料</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">学员姓名</label>
+                            <div class="col-lg-7">
+                                <input type="hidden" name="stu_id" value="{$info.id}">
+                                <input type="text" class="form-control" placeholder="" value="{$info.name}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">性别</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" placeholder="" value="{$info.sex}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">出生日期</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" id="birth-date" value="{$info.birthday}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="bord-btm pad-ver text-main text-bold">评估时孩子状况-child's performance during the assessment</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-10">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_performance"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="bord-btm pad-ver text-main text-bold">特别喜好（玩具或食物）-Favorite toys and food</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-10">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_favorite"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="bord-btm pad-ver text-main text-bold">家长最关心的问题-What are parents' main concerns?</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-10">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_main"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="bord-btm pad-ver text-main text-bold">特别注意事项-Notes</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-10">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_notes"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="bord-btm pad-ver text-main text-bold">第一阶段(1st stage)：</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-10">
+                                <textarea rows="9" class="form-control" placeholder="" name="content_1_stage"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="bord-btm pad-ver text-main text-bold">第二阶段(2nd stage)：</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-10">
+                                <textarea id="others-textarea-input" rows="9" class="form-control" placeholder="" name="content_2_stage"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-7 col-sm-offset-4">
+                            <input type="hidden" name="version" value="1">
+                            <button class="btn btn-primary" type="submit">保存并下一步</button>
+                            <a href="javascript:;" onclick="location.reload()" class="btn btn-info"> 重置</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+{/block}

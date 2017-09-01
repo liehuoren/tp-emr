@@ -12,7 +12,7 @@ class admin extends Controller
     public function register()
     {
         if(is_login()){
-            $this->redirect('admin/admin/index');
+            $this->redirect('admin/index/index');
         }
         return view();
     }
@@ -39,7 +39,7 @@ class admin extends Controller
     {
         model('User')->need_login();
         if(is_login()){
-            $this->redirect('admin/admin/index');
+            $this->redirect('admin/index/index');
         }
         return view();
     }
@@ -169,5 +169,10 @@ class admin extends Controller
 
         }
         
+    }
+
+    public function _empty($method)
+    {
+        return view('public/404');
     }
 }
