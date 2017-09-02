@@ -12,7 +12,7 @@ class User extends Base
     public function index($p=1,$status=1,$role=0)
     {
 
-        $list = UcenterUser::with(['profile','roles'])->where('status','>=',-1)->field('id,email,last_login_time,status')->cache(true)->paginate();
+        $list = UcenterUser::with(['profile','roles'])->where('status','>=',-1)->field('id,email,last_login_time,status')->cache(false)->paginate();
         $list->hidden(['roles'=>['description','rules','pivot']])->append(['status_text','status_class']);
 
         return view('',['list'=>$list]);
