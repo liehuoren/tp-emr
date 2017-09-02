@@ -69,7 +69,7 @@
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">小组成员</label>
                                     <div class="col-lg-7">
-                                        <select data-placeholder="选择小组长" id="chosen-select-group" tabindex="1" name="group_id" multiple class="form-control">   <option value=""></option>
+                                        <select data-placeholder="选择小组长" id="chosen-select-group" tabindex="1" name="group_id[]" multiple class="form-control">   <option value=""></option>
                                             {volist name="list" id="vo"}
                                                 {in name="vo.roles.0.id" value="7"}
                                                 <option value="{$vo.id}" {in name="vo.id" value="$user.group_id"}selected{/in}>{$vo.id}-{$vo.profile.fullname}-{$vo.roles.0.name}</option>

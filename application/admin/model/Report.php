@@ -28,6 +28,7 @@ class Report extends Model
         'training_plan' => 'json',
         'summary' => 'json',
         'course' => 'json',
+        'reg_time' => 'timestamp:Y-m-d',
         'assess_time' => 'timestamp:Y-m-d H:i'
     ];
 

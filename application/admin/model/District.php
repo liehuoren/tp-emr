@@ -6,6 +6,4 @@ use think\Model;
 class District extends Model
 {
     protected $table = "emr_district";
-
-    
 }

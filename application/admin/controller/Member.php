@@ -30,7 +30,7 @@ class Member extends Base
             
         }
         $map['status'] = array('egt',-1);
-        $list = Members::where($map)->paginate(12);
+        $list = Members::where($map)->order('create_time desc')->paginate(12);
         $list->append(['status_class','diagnosis_text']);
         return view('',['list'=>$list]);
     }

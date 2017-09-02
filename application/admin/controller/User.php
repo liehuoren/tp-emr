@@ -157,4 +157,18 @@ class User extends Base
         return view('edit-group',['list'=>$lists,'user'=>$user_group]);
     }
 
+    public function updateGroup(Request $request,$id)
+    {
+        if($request->isPost()){
+            $data = $request->only(['group_id','status']);
+            $data['group_id'] = implode(',',$data['group_id']);
+            $res = Db::table('sys_user_group')->where('id',$id)->update($data);
+            if($res){
+                $this->success('更新小组成功');
+            }else{
+                $this->error('更新小组失败');
+            }
+        }
+    }
+
 }

@@ -1,10 +1,93 @@
-{extend name="Admin:base" /}
-{block name="title"}注册{/block}
-{block name="js"}
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\wamp64\www\tp-emr\public/../application/admin\view\admin\register.html";i:1504316345;s:69:"D:\wamp64\www\tp-emr\public/../application/admin\view\Admin\base.html";i:1504166977;}*/ ?>
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册-<?php echo \think\Config::get('web_site_name'); ?></title>
+
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <!--Open Sans Font [ OPTIONAL ]-->
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="__CSS__/nifty.min.css" rel="stylesheet">
+
+    <!--Nifty Premium Icon [ DEMONSTRATION ]-->
+    <link href="__CSS__/demo/nifty-demo-icons.min.css" rel="stylesheet">
+  
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="__CSS__/demo/nifty-demo.min.css" rel="stylesheet">
+
+    <!--Magic Checkbox [ OPTIONAL ]-->
+    <link href="__PLUGINS__/magic-check/css/magic-check.min.css" rel="stylesheet">
+
+    <link href="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
+    
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+    <!--Pace - Page Load Progress Par [OPTIONAL]-->
+    <link href="__PLUGINS__/pace/pace.min.css" rel="stylesheet">
+
+    <script src="__PLUGINS__/pace/pace.min.js"></script>
+    <!--jQuery [ REQUIRED ]-->
+    <script src="__JS__/jquery-2.2.4.min.js"></script>
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="__JS__/bootstrap.min.js"></script>
+
+    <!--NiftyJS [ RECOMMENDED ]-->
+    <script src="__JS__/nifty.min.js"></script>
+    <script src="__PLUGINS__/layer/layer.js"></script>
+    <!--=================================================-->
+    
+    <!--Background Image [ DEMONSTRATION ]-->
+    <script src="__JS__/demo/bg-images.js"></script>
+
+    <script src="__PLUGINS__/bootstrap-validator/bootstrapValidator.min.js"></script>
+    
 <script src="__PLUGINS__/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
 <script src="__JS__/admin/register.js"></script>
-{/block}
-{block name="content"}
+
+    <!--=================================================
+
+    REQUIRED
+    You must include this in your project.
+
+    RECOMMENDED
+    This category must be included but you may modify which plugins or components which should be included in your project.
+
+    OPTIONAL
+    Optional plugins. You may choose whether to include it in your project or not.
+
+    DEMONSTRATION
+    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+    SAMPLE
+    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+    Detailed information and more samples can be found in the document.
+
+    =================================================-->
+        
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+<body>
+    <div id="container" class="cls-container">
+        
+        <!-- BACKGROUND IMAGE -->
+        <!--===================================================-->
+        <div id="bg-overlay" class="bg-img" style="background-image: url(&quot;/static/img/bg-img/bg-img-3.jpg&quot;);"></div>
+        
+        
 <div class="cls-content">
     <div class="cls-content-lg panel" style="width:800px;">
         <div class="panel-body">
@@ -62,7 +145,7 @@
                             </div>
             
                             <!--Form-->
-                            <form class="form-horizontal" id="register-bv-wz-form" method="post" action="{:url('admin/Admin/doRegister')}">
+                            <form class="form-horizontal" id="register-bv-wz-form" method="post" action="<?php echo url('admin/Admin/doRegister'); ?>">
                                 <div class="panel-body">
                                     <div class="tab-content">
                                         <!--First tab-->
@@ -161,8 +244,35 @@
         </div>
     </div>
 </div>
-{/block}
-{block name="script"}
+
+        
+        
+        <!-- DEMO PURPOSE ONLY -->
+        <!--===================================================-->
+        <div class="demo-bg">
+            <div id="demo-bg-list">
+                <div class="demo-loading"><i class="psi-repeat-2"></i></div>
+                <img class="demo-chg-bg bg-trans" src="__IMG__/bg-img/thumbs/bg-trns.jpg" alt="Background Image">
+                <img class="demo-chg-bg" src="__IMG__/bg-img/thumbs/bg-img-1.jpg" alt="Background Image">
+                <img class="demo-chg-bg" src="__IMG__/bg-img/thumbs/bg-img-2.jpg" alt="Background Image">
+                <img class="demo-chg-bg active" src="__IMG__/bg-img/thumbs/bg-img-3.jpg" alt="Background Image">
+                <img class="demo-chg-bg" src="__IMG__/bg-img/thumbs/bg-img-4.jpg" alt="Background Image">
+                <img class="demo-chg-bg" src="__IMG__/bg-img/thumbs/bg-img-5.jpg" alt="Background Image">
+                <img class="demo-chg-bg" src="__IMG__/bg-img/thumbs/bg-img-6.jpg" alt="Background Image">
+                <img class="demo-chg-bg" src="__IMG__/bg-img/thumbs/bg-img-7.jpg" alt="Background Image">
+            </div>
+        </div>
+        <!--===================================================-->
+        
+        
+        
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+
+
+    </body>
+    
 <script type="text/javascript">
 
     $("#getverify").click(function () {
@@ -180,7 +290,7 @@
         
         
 
-        $.post("{:url('admin/admin/sendVerify')}", {account: email}, function (res) {
+        $.post("<?php echo url('admin/admin/sendVerify'); ?>", {account: email}, function (res) {
             if (res.status) {
                 DecTime.obj = $this
                 DecTime.time = "60";
@@ -214,4 +324,5 @@
 
 </script>
     
-{/block}
+
+</html>
