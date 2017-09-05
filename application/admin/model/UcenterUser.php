@@ -102,7 +102,7 @@ class UcenterUser extends Model
             return -3;
         }
 
-        if($user['status']){
+        if($user['status']==1){
             if (think_ucenter_md5($password, UC_AUTH_KEY) === $user['password']) {
                 $this->updateLogin($user['id']); //更新用户登录信息
                 $this->updateLog($user['id']);
@@ -111,6 +111,8 @@ class UcenterUser extends Model
             } else {
                 return -2; //密码错误
             }
+        }else if($user['status']==2){
+            return -4;
         }else{
             return -1;
         }

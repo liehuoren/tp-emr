@@ -182,9 +182,9 @@
 
         $.post("{:url('admin/admin/sendVerify')}", {account: email}, function (res) {
             if (res.status) {
-                DecTime.obj = $this
+                DecTime.obj = $this;
                 DecTime.time = "60";
-                $this.attr('disabled',true);
+                
                 DecTime.dec_time();
 
                 layer.msg('验证码已成功发送至您的邮箱', {icon: 6});

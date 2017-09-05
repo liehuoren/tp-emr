@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\wamp64\www\tp-emr\public/../application/admin\view\admin\register.html";i:1504316345;s:69:"D:\wamp64\www\tp-emr\public/../application/admin\view\Admin\base.html";i:1504166977;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\wamp64\www\tp-emr\public/../application/admin\view\admin\register.html";i:1504576605;s:69:"D:\wamp64\www\tp-emr\public/../application/admin\view\Admin\base.html";i:1504166977;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -292,9 +292,9 @@
 
         $.post("<?php echo url('admin/admin/sendVerify'); ?>", {account: email}, function (res) {
             if (res.status) {
-                DecTime.obj = $this
+                DecTime.obj = $this;
                 DecTime.time = "60";
-                $this.attr('disabled',true);
+                
                 DecTime.dec_time();
 
                 layer.msg('验证码已成功发送至您的邮箱', {icon: 6});
